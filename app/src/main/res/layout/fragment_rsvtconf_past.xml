@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.percentlayout.widget.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="80%"
+            android:background="#fff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp"
+            app:layout_marginTopPercent="18%"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="2"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/servey_linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="0.9"
+                    android:weightSum="9"
+                    >
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="진료예약현황"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/dark_color"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/noto_sans"
+                        android:layout_weight="0.9"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="7px"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/dark_color"
+                        android:layout_weight="0.1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="진료과/의사명"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="일반내과/김교수"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="진료예약일시"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="2020-09-08 10:15"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="예약신청일"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf3"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="2020-09-07 인터넷예약"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginHorizontal="70dp"
+                        android:gravity="center"
+                        android:layout_weight="5">
+
+                        <Button
+                            android:id="@+id/rsvtcan_btn"
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/button"
+                            android:text="취소"
+                            android:textStyle="bold"
+                            android:textColor="@color/dark_color"
+                            />
+                        <Button
+                            android:id="@+id/rsvtmod_btn"
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/button"
+                            android:text="변경"
+                            android:textStyle="bold"
+                            android:textColor="@color/dark_color"
+                            > </Button>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/servey_linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:layout_weight="1.1"
+                    android:weightSum="9"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="3dp"
+                        android:text="검사예약현황"
+                        android:textColor="@color/dark_color"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/noto_sans"
+                        android:layout_weight="0.9"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="7px"
+                        android:layout_marginBottom="15dp"
+                        android:background="@color/dark_color"
+                        android:layout_weight="0.1"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="검사/처방명"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="내시경/내용참조"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="예약일시"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="2020-09-08 10:15"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        android:weightSum="5"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2"
+                            android:fontFamily="@font/noto_sans"
+                            android:gravity="center|left"
+                            android:paddingLeft="15dp"
+                            android:text="진료과명"
+                            android:textColor="#999"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txt_conf1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="3"
+                            android:background="@null"
+                            android:fontFamily="@font/noto_sans"
+                            android:hint="일반내과"
+                            android:inputType="number"
+                            android:paddingLeft="5dp"
+                            android:gravity="center|left"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_weight="4"
+                        android:layout_marginHorizontal="70dp">
+
+                        <Button
+                            android:id="@+id/schcan_btn"
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/button"
+                            android:text="취소"
+                            android:textStyle="bold"
+                            android:textColor="@color/dark_color"
+                            />
+                        <Button
+                            android:id="@+id/schmod_btn"
+                            android:layout_width="20dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/button"
+                            android:text="변경"
+                            android:textStyle="bold"
+                            android:textColor="@color/dark_color"
+                            > </Button>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.percentlayout.widget.PercentFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

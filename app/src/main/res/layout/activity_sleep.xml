@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context=".card.SleepActivity">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="수면"
+                android:textColor="#2B2B2B"
+                android:textSize="18sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/go_sleep_list"
+                app:layout_constraintHorizontal_bias="0.574"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.428" />
+
+            <TextView
+                android:id="@+id/go_sleep_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:clickable="true"
+                android:text="목록"
+                android:textColor="#2b2b2b"
+                android:textSize="18sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.428" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--전체 리니어-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:text="수면 날짜"
+                android:textColor="#333"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/date_btn"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/date_btn"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_list"
+                android:fontFamily="@font/noto_sans"
+                android:text="설정"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="0.5"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:weightSum="10">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:text="수면 시간"
+                android:textColor="#333"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/hourData"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"></Spinner>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:text="시간"
+                android:textColor="#333"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/minuteData"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"></Spinner>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="3.5"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:text="분"
+                android:textColor="#333"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1.5"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:background="#fff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/noto_sans"
+                    android:paddingLeft="15dp"
+                    android:text="미국 국립수면재단에서 권고하고 있는 수면 시간은\n10~17세 기준으로 낮잠을 제외하고도 8.5~9.25시간 이상이라고 하고,\nOECD 권장 수면시간은 8시간입니다."
+                    android:textColor="#666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/sleep_submit"
+                android:layout_width="282dp"
+                android:layout_height="49dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/water_btn"
+                android:text="등록"
+                android:textColor="#fff" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

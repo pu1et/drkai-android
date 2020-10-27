@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.drkaiproject"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- 인터넷 사용 허가 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:testOnly="false"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:windowSoftInputMode="adjustPan" android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.accountkit.ApplicationName"
+            android:value="@string/app_name" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/FACEBOOK_APP_ID" />
+        <meta-data
+            android:name="com.facebook.accountkit.ClientToken"
+            android:value="78800aad9a2cf6861cfc013c99861ba3" />
+
+        <activity android:name=".JoinActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ServeyStart" />
+        <activity android:name=".ServeyActivity" />
+        <activity android:name=".HealthServeyActivity" />
+        <activity android:name=".DepressionActivity" />
+        <activity android:name=".ChangeServeyActivity" />
+        <activity android:name=".ChangeMemberInfoActivity" />
+        <activity android:name=".ChangeHealthServeyActivity" />
+        <activity android:name=".DeveloperActivity" />
+        <activity android:name=".SelectPrefer" />
+        <activity android:name=".informationActivity" />
+        <activity android:name=".information2Activity" />
+        <activity android:name=".Splashscreen"/>
+        <activity android:name=".UserIconActivity"/>
+        <activity android:name=".RSVTActivity"/>
+        <activity android:name=".RMTDiagActivity"/>
+        <activity android:name=".RMTDiag2Activity"/>
+        <activity android:name=".menu.UserInfoConf1" />
+        <activity android:name=".menu.UserInfoConf2" />
+        <activity android:name=".menu.UserInfoChange1" />
+        <activity android:name=".menu.UserInfoChange2" />
+        <activity android:name=".menu.DepressionTest"/>
+        <activity android:name=".menu.PreDiagResult"/>
+
+        <activity android:name=".card.AlcoholActivity"/>
+        <activity android:name=".card.ExerciseActivity"/>
+        <activity android:name=".card.FoodActivity"/>
+        <activity android:name=".card.SleepActivity"/>
+        <activity android:name=".card.SmokeActivity"/>
+        <activity android:name=".card.WaterActivity"/>
+
+        <activity android:name=".lex.TextActivity"/>
+        <activity android:name=".lex.InteractiveVoiceActivity"/>
+
+        <activity android:name=".sqliteList.SleepListActivity"/>
+        <activity android:name=".sqliteList.AlcoholListActivity"/>
+        <activity android:name=".sqliteList.FoodListActivity"/>
+        <activity android:name=".sqliteList.SmokeListActivity"/>
+        <activity android:name=".sqliteList.WaterListActivity"/>
+
+
+    </application>
+
+</manifest>

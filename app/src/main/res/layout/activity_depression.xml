@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".DepressionActivity">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="우울증 검사"
+            android:textColor="#2B2B2B"
+            android:textSize="18sp"
+            app:fontFamily="@font/noto_sans" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <!--전체 리니어-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <!--2. 우울증 진단-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="우울증 진단을 위해 아래 문항을 선택해주세요"
+                            android:textColor="#ff3d71ff"
+                            android:textSize="12sp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="7px"
+                            android:layout_marginBottom="15dp"
+                            android:background="#ff3d71ff" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="1. 우울한 기분(슬픔, 절망감, 무력감, 무가치감)"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin01"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="2. 죄책감"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin02"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="3. 자 살"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin03"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="4. 초기 불면증"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin04"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="5. 중기 불면증"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin05"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="6. 말기 불면증"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin06"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="7. 일과 활동"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin07"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="8. 지 체(생각과 말이 느려짐；집중력 저하；운동활성의 저하)"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin08"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="9. 초 조"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin09"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="10. 정신적 불안"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="11. 신체적 불안 불안의 생리적 현상："
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin11"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="12. 위장관계 신체증상"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin12"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="13. 전반적인 신체증상"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin13"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="14. 성적인 증상"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin14"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="15. 건강염려증"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin15"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="48dp"
+                                    android:layout_marginRight="5dp"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="16. 체중감소 A 또는 B로 평가한다"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+
+                                <RadioGroup
+                                    android:layout_width="match_parent"
+                                    android:layout_height="20dp"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <RadioButton
+                                        android:onClick="radioCheck"
+                                        android:id="@+id/check_A"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/noto_sans"
+                                        android:text="A"
+                                        android:checked="true"
+                                        android:textColor="#666"
+                                        android:textSize="13sp" />
+
+                                    <RadioButton
+                                        android:onClick="radioCheck"
+                                        android:id="@+id/check_B"
+                                        android:layout_width="0dp"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/noto_sans"
+                                        android:text="B"
+                                        android:textColor="#666"
+                                        android:textSize="13sp" />
+                                </RadioGroup>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin16"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/noto_sans"
+                                    android:gravity="center|left"
+                                    android:paddingLeft="5dp"
+                                    android:text="17. 병 식"
+                                    android:textColor="#999"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp">
+
+                                <Spinner
+                                    android:id="@+id/depSpin17"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:dropDownWidth="match_parent" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:background="#ffffff"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_sans"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="건강검진 진단 체크"
+                        android:textColor="#999"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_sans"
+                        android:gravity="center|left"
+                        android:paddingLeft="5dp"
+                        android:text="건강검진서가 있으면 추가설문조사로 넘어갑니다"
+                        android:textColor="#999"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/noto_sans"
+                        android:gravity="center|left"
+                        android:paddingLeft="15dp"
+                        android:text="최근에 건강검진 여부"
+                        android:textColor="#999"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:id="@+id/sun"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RadioButton
+                            android:id="@+id/radio1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="예"
+                            android:textColor="#666"
+                            android:textSize="8sp" />
+
+                        <RadioButton
+                            android:id="@+id/radio2"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="아니오"
+                            android:textColor="#666"
+                            android:textSize="8sp" />
+                    </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit_dP"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_rec"
+                android:onClick="btnMethod"
+                android:text="제출"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

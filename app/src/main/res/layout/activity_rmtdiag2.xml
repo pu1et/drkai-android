@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_background1" />
+
+    <androidx.percentlayout.widget.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="80%"
+            android:background="#fff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp"
+            app:layout_marginTopPercent="18%"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center">
+                    <Button
+                        android:id="@+id/join_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/button"
+                        android:textColor="@color/dark_color"
+                        android:text="join meeting" />
+                </LinearLayout>
+
+                <Button
+                    android:layout_marginTop="20dp"
+                    android:id="@+id/login_button"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/dark_color"
+                    android:background="@drawable/button"
+                    android:text="log in &amp; start meeting"
+                    />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.percentlayout.widget.PercentFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

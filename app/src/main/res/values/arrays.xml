@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="items_array_expandable_level_one">
+        <item>전체 진료과</item>
+        <item>설정</item>
+        <item>병원 정보</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_one_child">
+        <item>정형외과</item>
+        <item>신경외과</item>
+        <item>이비인후과</item>
+        <item>더보기</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_one_child_one_child">
+        <item>일반내과</item>
+        <item>신장내과</item>
+        <item>피부과</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_two_child">
+        <item>즐겨찾기</item>
+        <item>회원정보 수정</item>
+        <item>회원정보 확인</item>
+    </string-array>
+    <string-array name="items_array_expandable_level_one_three_child">
+        <item>병원정보</item>
+        <item>병원 오시는 길</item>
+    </string-array>
+</resources>

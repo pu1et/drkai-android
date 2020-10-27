@@ -1,0 +1,35 @@
+{
+    "UserAgent": "aws-amplify-cli/2.0",
+    "Version": "1.0",
+    "auth": {
+        "plugins": {
+            "awsCognitoAuthPlugin": {
+                "UserAgent": "aws-amplify-cli/0.1.0",
+                "Version": "0.1.0",
+                "IdentityManager": {
+                    "Default": {}
+                },
+                "CredentialsProvider": {
+                    "CognitoIdentity": {
+                        "Default": {
+                            "PoolId": "us-west-2:a7951297-0f6c-46a3-92c7-82ad4ddbe600",
+                            "Region": "us-west-2"
+                        }
+                    }
+                },
+                "Auth": {
+                    "Default": {
+                        "authenticationFlowType": "USER_SRP_AUTH"
+                    }
+                },
+                "Lex": {
+                    "BookTrip_dev": {
+                        "Name": "BookTrip_dev",
+                        "Alias": "$LATEST",
+                        "Region": "us-west-2"
+                    }
+                }
+            }
+        }
+    }
+}

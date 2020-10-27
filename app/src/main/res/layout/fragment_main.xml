@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+        <androidx.percentlayout.widget.PercentFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_widthPercent="50%"
+                app:layout_heightPercent="8%"
+                android:background="#fff"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="1dp"
+                android:layout_gravity="top|center"
+                app:layout_marginTopPercent="10%"
+                >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Dr.K-AI"
+                android:textSize="20dp"
+                android:textColor="@color/dark_color"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_widthPercent="100%"
+                app:layout_heightPercent="31%"
+                android:background="#fff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:layout_marginTopPercent="20%"
+                >
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ad"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:layout_widthPercent="100%"
+                app:layout_heightPercent="30%"
+                app:layout_marginTopPercent="53%"
+                >
+
+                <ListView
+                    android:dividerHeight="10dp"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="7dp"
+                    android:id="@+id/notice_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="#ffffff"
+                    />
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:layout_widthPercent="49%"
+                app:layout_heightPercent="13%"
+                app:layout_marginTopPercent="85%"
+                android:layout_gravity="left"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="5"
+                    android:orientation="vertical"
+                    >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingTop="7dp"
+                    android:layout_weight="2">
+                <TextView
+                    android:id="@+id/cold_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="지수 타이틀"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_color"
+                    android:textSize="15dp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3">
+
+                <TextView
+                    android:id="@+id/cold_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textColor="@color/dark_color"
+                    android:text="지수 설명" />
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp"
+                app:layout_widthPercent="49%"
+                app:layout_heightPercent="13%"
+                app:layout_marginTopPercent="85%"
+                android:layout_gravity="right"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="5"
+                    android:orientation="vertical"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingTop="7dp"
+                        android:layout_weight="2">
+                <TextView
+                    android:id="@+id/asthma_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="지수 타이틀"
+                    android:textAlignment="center"
+                    android:textColor="@color/dark_color"
+                    android:textSize="15dp" />
+                    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="3">
+
+                <TextView
+                    android:id="@+id/asthma_index"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="18dp"
+                    android:textColor="@color/dark_color"
+                    android:text="지수 설명" />
+                </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.percentlayout.widget.PercentFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

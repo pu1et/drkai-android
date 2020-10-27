@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".HealthServeyActivity">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="건강검진설문"
+            android:textColor="#2B2B2B"
+            android:textSize="18sp"
+            app:fontFamily="@font/noto_sans" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <!--전체 리니어-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <!--1. 건강 검진-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="MissingConstraints">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="7px"
+                            android:layout_marginBottom="15dp"
+                            android:background="#ff3d71ff" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="공복혈당"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_FPG"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="트리글리세라이드"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_TG"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="백혈구"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_leukocyte"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="총 콜레스테롤"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_total_colesterol"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="HDL-콜레스테롤"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_HDL"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="LDL-콜레스테롤"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_LDL"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="글리코헤모글로빈"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_HbA"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="％"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="수축기혈압"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_SBP"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mmHg"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="이완기혈압"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_DBP"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mmHg"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="심방세동 진단"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_is_aF"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="PT INR"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_PT_INR"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="빌리루빈"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_bilirubin"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="크레아티닌"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_creatinine"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="암모니아"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_ammonia"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="mg/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="AFP"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_AFP"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="IU/ml"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="알부민"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_albumin"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="g/dl"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="혈소판"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_platelet"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="7"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="15dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="3"
+                                android:text="ul"
+                                android:textColor="#ff3d71ff"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="DLD_server"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_DLD"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="고지혈증 진단"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_hyper"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="관상동맥질환"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_chemic"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="130dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="암 가족력"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_cancer"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="규칙적인 식사"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_meal"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="4"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center|left"
+                                android:paddingLeft="15dp"
+                                android:text="나트륨 섭취량"
+                                android:textColor="#999"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/info_salt"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="4"
+                                android:background="@null"
+                                android:fontFamily="@font/noto_sans"
+                                android:gravity="center"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="10dp"
+                                android:textColor="#999"
+                                android:textSize="14sp"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <!--제출 버튼-->
+            <Button
+                android:id="@+id/go_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_rec"
+                android:text="메인 화면"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

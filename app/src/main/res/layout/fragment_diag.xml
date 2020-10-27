@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.percentlayout.widget.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="80%"
+            android:background="#fff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp"
+            app:layout_marginTopPercent="18%">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2"
+                    android:layout_weight="1"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <ImageView
+                            android:id="@+id/join_img"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/task"
+                            android:layout_gravity="center"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/go_prediag"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/button"
+                            android:layout_gravity="center"
+                            >
+
+                            <TextView
+                                android:id="@+id/go_prediag_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal|top"
+                                android:text="예측 진단"
+                                android:textColor="@color/dark_color"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/go_prediag"
+                                app:layout_constraintEnd_toEndOf="@+id/go_prediag"
+                                app:layout_constraintStart_toStartOf="@+id/go_prediag"
+                                app:layout_constraintTop_toTopOf="@+id/go_prediag" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        >
+                        <ImageView
+                            android:id="@+id/join_img"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/task"
+                            android:layout_gravity="center"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/go_imgdiag"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/button"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:id="@+id/go_imgdiag_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal|top"
+                                android:text="영상 진단"
+                                android:textColor="@color/dark_color"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/go_imgdiag"
+                                app:layout_constraintEnd_toEndOf="@+id/go_imgdiag"
+                                app:layout_constraintStart_toStartOf="@+id/go_imgdiag"
+                                app:layout_constraintTop_toTopOf="@+id/go_imgdiag" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:weightSum="2"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:id="@+id/join_img"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/task"
+                            android:layout_gravity="center"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/go_rmtdiag"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/button"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:id="@+id/go_rmtdiag_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal|top"
+                                android:text="원격 진단"
+                                android:textColor="@color/dark_color"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/go_rmtdiag"
+                                app:layout_constraintEnd_toEndOf="@+id/go_rmtdiag"
+                                app:layout_constraintStart_toStartOf="@+id/go_rmtdiag"
+                                app:layout_constraintTop_toTopOf="@+id/go_rmtdiag" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/join_img"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/task"
+                            android:layout_gravity="center"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/go_modify_info"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="30dp"
+                            android:background="@drawable/button"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:id="@+id/go_modify_info_txt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal|top"
+                                android:text="정보 수정"
+                                android:textColor="@color/dark_color"
+                                android:textSize="15sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/go_modify_info"
+                                app:layout_constraintEnd_toEndOf="@+id/go_modify_info"
+                                app:layout_constraintStart_toStartOf="@+id/go_modify_info"
+                                app:layout_constraintTop_toTopOf="@+id/go_modify_info" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </androidx.percentlayout.widget.PercentFrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

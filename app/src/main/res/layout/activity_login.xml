@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_light"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/background"
+        app:layout_constraintLeft_toLeftOf="@+id/background"
+        app:layout_constraintRight_toRightOf="@+id/background"
+        app:layout_constraintTop_toTopOf="@+id/background">
+
+        <ImageView
+            android:id="@+id/image1"
+            android:layout_width="190dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="8dp"
+            android:src="@drawable/logo"
+            app:layout_constraintBottom_toTopOf="@+id/email_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/email_btn"
+            android:layout_width="282.9dp"
+            android:layout_height="37.7dp"
+            android:layout_marginTop="266.9dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/user_email"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="47.2dp"
+                android:layout_marginTop="5dp"
+                android:background="@null"
+                android:gravity="start|top"
+                android:hint="아이디"
+                android:textColor="#666"
+                android:textColorHint="#999"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/email_img"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="11dp"
+                android:src="@drawable/user"
+                app:layout_constraintEnd_toStartOf="@+id/user_email"
+                app:layout_constraintStart_toStartOf="@+id/email_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pw_btn"
+            android:layout_width="282.9dp"
+            android:layout_height="37.7dp"
+            android:layout_marginTop="309.6dp"
+            android:background="@drawable/pw_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/user_pw"
+                android:layout_width="220dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="3dp"
+                android:background="@null"
+                android:gravity="start|top"
+                android:hint="비밀번호"
+                android:inputType="textPassword"
+                android:textColor="#666"
+                android:textColorHint="#999"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/pw_img"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/padlock"
+                app:layout_constraintEnd_toStartOf="@+id/user_pw"
+                app:layout_constraintStart_toStartOf="@+id/pw_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/text5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="206.2dp"
+            android:layout_marginTop="486dp"
+            android:gravity="start|top"
+            android:text="@string/text5"
+            android:textColor="#999"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/find_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0.2dp"
+            android:layout_marginTop="486dp"
+            android:gravity="start|top"
+            android:text="@string/find_id"
+            android:textColor="#999"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/login_btn"
+            android:layout_width="282.9dp"
+            android:layout_height="49.0dp"
+            android:layout_marginTop="365dp"
+            android:background="@drawable/login_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|top"
+                android:text="@string/text7"
+                android:textColor="#999"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/login_btn"
+                app:layout_constraintEnd_toEndOf="@+id/login_btn"
+                app:layout_constraintStart_toStartOf="@+id/login_btn"
+                app:layout_constraintTop_toTopOf="@+id/login_btn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/join_btn"
+            android:layout_width="282.9dp"
+            android:layout_height="49.0dp"
+            android:layout_marginTop="425dp"
+            android:background="@drawable/join_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|top"
+                android:text="@string/text4"
+                android:textColor="@color/color_ffffffff"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/join_btn"
+                app:layout_constraintEnd_toEndOf="@+id/join_btn"
+                app:layout_constraintStart_toStartOf="@+id/join_btn"
+                app:layout_constraintTop_toTopOf="@+id/join_btn" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

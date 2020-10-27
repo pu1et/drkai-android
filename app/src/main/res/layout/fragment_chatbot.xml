@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+
+    <androidx.percentlayout.widget.PercentFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_widthPercent="100%"
+            app:layout_heightPercent="80%"
+            android:background="#fff"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="1dp"
+            app:layout_marginTopPercent="18%"
+            >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+    <Button
+        android:id="@+id/button_select_text"
+        android:text="텍스트 진단"
+        android:textAllCaps="false"
+        android:textSize="@dimen/activity_button_text_size"
+        android:textStyle="bold"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/button"
+        android:textColor="@color/dark_color"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/activity_intra_group_separation"
+        android:id="@+id/space_a3"
+        android:layout_below="@+id/button_select_text"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/button_select_voice"
+        android:text="음성 인식 진단"
+        android:textAllCaps="false"
+        android:textSize="@dimen/activity_button_text_size"
+        android:textStyle="bold"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/button"
+        android:textColor="@color/dark_color"
+/>
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.percentlayout.widget.PercentFrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

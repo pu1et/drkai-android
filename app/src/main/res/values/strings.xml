@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Dr.K-AI</string>
+    <string name="FACEBOOK_APP_ID">1488495924625644</string>
+    <string name="text5">비밀번호 찾기</string>
+    <string name="find_id">아이디 찾기</string>
+    <string name="text7">로그인</string>
+    <string name="text4">회원가입</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_header_desc">nav_header_desc</string>
+    <string name="nav_header_title">nav_header_title</string>
+    <string name="nav_header_subtitle">nav_header_subtitle</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="screen_options_main_message">닥터봇</string>
+</resources>

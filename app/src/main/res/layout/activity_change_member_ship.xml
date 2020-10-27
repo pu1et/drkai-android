@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="회원정보 수정"
+            android:textColor="#2B2B2B"
+            android:textSize="18sp"
+            app:fontFamily="@font/noto_sans" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbar">
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="2"
+                android:text="핸드폰번호"
+                android:textAlignment="center"
+                android:textColor="#999"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/user_phone"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:background="#fff"
+                android:hint="수정할 번호를 입력하세요"
+                android:inputType="number"
+                android:paddingLeft="15dp"
+                android:textColor="#666"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="지역"
+                android:textAlignment="center"
+                android:textColor="#999"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinner_area"
+                android:layout_width="240dp"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/txt_past_pw"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="3dp"
+            android:background="#fff"
+            android:hint="현재 비밀번호"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#666"
+            android:textColorHint="#999"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_new_pw"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="3dp"
+            android:background="#fff"
+            android:hint="수정할 비밀번호 (영문+숫자, 10자리 이상)"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#666"
+            android:textColorHint="#999"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/txt_new_pw1"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#fff"
+            android:hint="수정할 비밀번호 확인"
+            android:inputType="textPassword"
+            android:paddingLeft="15dp"
+            android:textColor="#666"
+            android:textColorHint="#999"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="- 아이디는 숫자로 시작할 수 없습니다.\n- 비밀번호는 10자 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 설정해 주세요."
+            android:textColor="#999"
+            android:textSize="10sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/edit_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/btn_rec"
+                android:text="변 경"
+                android:textColor="#FFFFFF"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

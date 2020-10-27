@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<tabs>
+    <tab
+        id="@+id/tab_main"
+        icon="@drawable/main_icon"
+        title="메인" />
+    <tab
+        id="@+id/tab_diag"
+        icon="@drawable/stethoscope"
+        title="진단" />
+    <tab
+        id="@+id/tab_rsvtconf"
+        icon="@drawable/rsvt_icon"
+        title="예약" />
+    <tab
+        id="@+id/tab_hltcare"
+        icon="@drawable/hltcare_icon"
+        title="건강관리" />
+    <tab
+        id="@+id/tab_chatbot"
+        icon="@drawable/info"
+        title="닥터봇" />
+</tabs>
+</PreferenceScreen>

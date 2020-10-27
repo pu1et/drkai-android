@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".card.WaterActivity"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:text="물"
+                android:textColor="#2B2B2B"
+                android:textSize="18sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/go_water_list"
+                app:layout_constraintHorizontal_bias="0.574"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.428" />
+
+            <TextView
+                android:id="@+id/go_water_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:clickable="true"
+                android:text="목록"
+                android:textColor="#2b2b2b"
+                android:textSize="18sp"
+                app:fontFamily="@font/noto_sans"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.428" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <!--전체 리니어-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="3">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="0.5"
+            android:background="#ffffff"
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:text="물 섭취 날짜"
+                android:textColor="#333"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/date_view"
+                android:layout_width="170dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:fontFamily="@font/noto_sans"
+                android:gravity="center|left"
+                android:textColor="#666"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/date_btn"
+                app:layout_constraintStart_toEndOf="@+id/textView5"
+                tools:layout_editor_absoluteY="0dp" />
+
+            <Button
+                android:id="@+id/date_btn"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/btn_list"
+                android:fontFamily="@font/noto_sans"
+                android:text="설정"
+                android:textColor="#fff"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--컨텐츠-->
+        <LinearLayout
+            android:paddingTop="50dp"
+            android:background="#fff"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:background="@drawable/glass_water"
+                android:layout_gravity="center"/>
+
+            <!--물 입력-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/minusButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:text="-"
+                    android:textSize="30dp"
+                    android:fontFamily="@font/noto_sans"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/water_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:fontFamily="@font/noto_sans"
+                            android:text="0"
+                            android:textColor="#333"
+                            android:textSize="55dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="25dp"
+                            android:text="잔"
+                            android:textColor="#333"
+                            android:fontFamily="@font/noto_sans"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/waterml"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#666"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/noto_sans"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" ml"
+                            android:textColor="#666"
+                            android:textSize="16sp"
+                            android:fontFamily="@font/noto_sans"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/addButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="10dp"
+                    android:text="+"
+                    android:textSize="30dp"
+                    android:fontFamily="@font/noto_sans"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1.5"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="#fff">
+                <TextView
+                    android:paddingLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="하루 물 섭취 권장량은 1.5~2L로 200ml기준 8잔~10잔 정도입니다.\n성인은 하루에 약 2.5L의 수분을 배설하기 때문에\n체내에 그 만큼의 물을 섭취해야 몸이 갈증을 느끼지 않습니다."
+                    android:textColor="#666"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/noto_sans"
+                    />
+            </LinearLayout>
+            <Button
+                android:id="@+id/water_submit"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="282dp"
+                android:layout_height="49dp"
+                android:background="@drawable/water_btn"
+                android:text="등록"
+                android:layout_marginTop="12dp"
+                android:textColor="#fff"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

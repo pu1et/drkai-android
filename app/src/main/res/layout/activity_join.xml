@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".JoinActivity">
+
+    <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/background_color"
+        android:minHeight="125dp"
+        android:theme="@style/AppTheme"
+        app:elevation="0dp"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="회원가입"
+            android:textColor="#2B2B2B"
+            android:textSize="18sp"
+            app:fontFamily="@font/noto_sans" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <!--전체 리니어-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp">
+
+            <!--기초정보입력(필수)-->
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/LinearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <CheckBox
+                        android:id="@+id/checkBox5"
+                        style="@style/Widget.AppCompat.CompoundButton.CheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="약관 전체 동의"
+                        android:textColor="#2B2B2B"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/noto_sans" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="30dp">
+                    <!--약관1-->
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="30dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <CheckBox
+                            android:id="@+id/checkBox4"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="220dp"
+                            android:layout_height="match_parent"
+                            android:gravity="center|left"
+                            android:text="  이용 약관"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/button"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff"
+                            android:onClick="btnMethod"
+                            android:text="상세보기"
+                            android:textColor="#3D71FF"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <!--약관2-->
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginBottom="33dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                        <CheckBox
+                            android:id="@+id/checkBox6"
+                            android:layout_width="40dp"
+                            android:layout_height="match_parent" />
+
+                        <TextView
+                            android:id="@+id/textView10"
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:background="#ffffff"
+                            android:gravity="center|left"
+                            android:text="  개인정보 수집 및 이용 동의"
+                            android:textSize="14sp" />
+
+                        <Button
+                            android:id="@+id/button2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#ffffff"
+                            android:onClick="btnMethod"
+                            android:text="상세보기"
+                            android:textColor="#3D71FF"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            계정정보
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30px"
+                android:orientation="vertical"
+
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayout8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="계정정보"
+                            android:textColor="#2B2B2B"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/noto_sans" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="입력하신 정보는 오직 서비스를 위해 활용되며, 그 외에\n다른 목적으로 절대 사용되지 않습니다."
+                            android:textColor="#999"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+
+
+                    <!--아이디-->
+                    <LinearLayout
+                        android:id="@+id/linearLayout9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/LinearLayout8">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="10"
+                            android:orientation="horizontal">
+
+
+                            <EditText
+                                android:id="@+id/user_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="48dp"
+                                android:layout_marginBottom="3dp"
+                                android:layout_weight="9"
+                                android:background="#fff"
+                                android:hint="아이디(영문+숫자, 5자리 이상)"
+                                android:inputType="text"
+                                android:paddingLeft="15dp"
+                                android:textColor="#666"
+                                android:textColorHint="#999"
+                                android:textSize="16sp" />
+
+                            <Button
+                                android:id="@+id/button1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="49dp"
+                                android:layout_weight="1"
+                                android:background="@drawable/rec_blue"
+                                android:text="중복체크"
+                                android:textColor="#FFFFFF"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/user_pw1"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:layout_marginBottom="3dp"
+                            android:background="#fff"
+                            android:hint="비밀번호 (영문+숫자, 10자리 이상)"
+                            android:inputType="textPassword"
+                            android:paddingLeft="15dp"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="16sp" />
+
+                        <EditText
+                            android:id="@+id/user_pw"
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="#fff"
+                            android:hint="비밀번호 확인"
+                            android:inputType="textPassword"
+                            android:paddingLeft="15dp"
+                            android:textColor="#666"
+                            android:textColorHint="#999"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="- 아이디는 숫자로 시작할 수 없습니다.\n- 비밀번호는 10자 이상의 영문 대소문자, 숫자, 특수문자를 조합하여 설정해 주세요."
+                            android:textColor="#999"
+                            android:textSize="10sp" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <!--기초 정보 입력(필수)-->
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayout6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="기초정보입력(필수)"
+                            android:textColor="#2B2B2B"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/noto_sans" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+
+                        app:layout_constraintTop_toBottomOf="@+id/LinearLayout6">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_weight="2"
+                                android:text="이름"
+                                android:textAlignment="center"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/user_name"
+                                android:layout_width="240dp"
+                                android:layout_height="48dp"
+                                android:background="#fff"
+                                android:hint="이름을 입력하세요"
+                                android:inputType="text"
+                                android:paddingLeft="15dp"
+                                android:textColor="#666"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_weight="2"
+                                android:text="나이"
+                                android:textAlignment="center"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/user_age"
+                                android:layout_width="240dp"
+                                android:layout_height="48dp"
+                                android:background="#fff"
+                                android:hint="나이를 입력하세요"
+                                android:inputType="number"
+                                android:paddingLeft="15dp"
+                                android:textColor="#666"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_weight="2"
+                                android:paddingTop="15dp"
+                                android:text="지역"
+                                android:textAlignment="center"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <Spinner
+                                android:id="@+id/spin_area"
+                                android:layout_width="240dp"
+                                android:layout_height="match_parent"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_weight="2"
+                                android:paddingTop="15dp"
+                                android:text="성별"
+                                android:textAlignment="center"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <RadioGroup
+                                android:id="@+id/user_gender"
+                                android:layout_width="240dp"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:paddingTop="8dp"
+                                android:weightSum="2">
+
+                                <RadioButton
+                                    android:id="@+id/man"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:checked="true"
+                                    android:text="남" />
+
+                                <RadioButton
+                                    android:id="@+id/woman"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="여" />
+
+                            </RadioGroup>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            android:background="#ffffff"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="48dp"
+                                android:layout_weight="2"
+                                android:text="핸드폰번호"
+                                android:textAlignment="center"
+                                android:textColor="#999"
+                                android:textSize="14sp" />
+
+                            <EditText
+                                android:id="@+id/user_phone"
+                                android:layout_width="240dp"
+                                android:layout_height="48dp"
+                                android:background="#fff"
+                                android:hint="번호를 입력하세요"
+                                android:inputType="number"
+                                android:paddingLeft="15dp"
+                                android:textColor="#666"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <!--결핍지수-->
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayout6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        tools:ignore="MissingConstraints">
+
+                        <TextView
+                            android:id="@+id/textView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="결핍지수"
+                            android:textColor="#2B2B2B"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/noto_sans" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="해당하는 문항을 체크해주세요(중복 선택 가능)"
+                            android:textColor="#2B2B2B"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/noto_sans" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/LinearLayout6">
+
+                        <CheckBox
+                            android:id="@+id/level1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="나는 경제적으로 일하고 있다."
+                            android:textColor="#666"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/level2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="나는 자동차를 소유하고 있지 않다."
+                            android:textColor="#666"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/level3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="1인 가구 주거공간에 2인 이상의 세대원이 거주한다."
+                            android:textColor="#666"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/level4"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:text="가정에서 경제적인 활동을 하는 세대원의 비율이 절반 이상이다."
+                            android:textColor="#666"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+
+                    app:layout_constraintTop_toBottomOf="@+id/LinearLayout6">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="#ffffff"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/go_servey_start"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="30dp"
+                            android:background="@drawable/btn_rec"
+                            android:text="다 음"
+                            android:textColor="#FFFFFF"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--휴대전화 인증-->
+
+            <!--이용 약관 리니어-->
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
