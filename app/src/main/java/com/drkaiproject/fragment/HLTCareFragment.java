@@ -493,7 +493,7 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
             // y축 설정
             YAxis yAxis = mChart.getAxisLeft(); // y축 왼쪽 데이터 가져오기.
             yAxis.setTextColor(Color.DKGRAY); // y축 텍스트 컬러 설정FF
-            yAxis.setAxisMaximum((float)110);
+            yAxis.setAxisMaximum((float)101);
             // y축 오른쪽 비활성화 (디폴트는 왼쪽 오른쪽에 라벨 보임, 값의 변화가 급격하지 않다면 하나만 써도 될 듯)
             yAxis = mChart.getAxisRight();
             yAxis.setDrawLabels(false);
