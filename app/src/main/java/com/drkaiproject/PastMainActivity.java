@@ -74,12 +74,13 @@ import java.util.concurrent.ExecutionException;
 
 import static com.drkaiproject.sqliteHelper.SqliteFunction.allHealthSQLiteHelper;
 
-public class MainActivity extends AppCompatActivity {
+public class PastMainActivity extends AppCompatActivity {
     private MainFragment mainFragment;
     private RMTDiagFragment rmtDiagFragment;
     private ChatbotFragment chatbotFragment;
     private DiagFragment diagFragment;
     private HLTCareFragment hltCareFragment;
+    private StringBuilder param_X, param_Y, param_STN;
     private String id, area_num, name;
     private ActionBar actionBar;
     private DrawerLayout drawerLayout;
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     private float sub = 0, humidity = 0, min_temp = 0, pressure = 0; //일교차, 평균습도, 최저기온
     SQLiteDatabase db;
     private Cursor cursor;
-    private String cold_index, asthma_index;
+    private String result_cold, result_asthma;
 
     private long pressTime;
 
@@ -108,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
 
         SqliteFunction.id = "1";
         SqliteFunction.gender = 0; // 여자
-        SqliteFunction.mCtx = MainActivity.this;
+        SqliteFunction.mCtx = PastMainActivity.this;
 
         Date today_tmp = Calendar.getInstance().getTime();
         String today_text = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(today_tmp);
         SqliteFunction.today = Integer.parseInt(today_text);
 
-        allHealthSQLiteHelper = new AllHealthSQLiteHelper(MainActivity.this, "allHealthTBL.db", null, 1);
+        allHealthSQLiteHelper = new AllHealthSQLiteHelper(PastMainActivity.this, "allHealthTBL.db", null, 1);
         SqliteFunction.db = allHealthSQLiteHelper.getWritableDatabase();
         //db.execSQL("delete from allHealthTBL;");
         allHealthSQLiteHelper.onCreate(SqliteFunction.db);
@@ -188,10 +189,17 @@ public class MainActivity extends AppCompatActivity {
         area_num = sf.getString("user_area", "1");
 
 
-        StringBuilder coldUrlBuilder = new StringBuilder(Constants.index_server + "/getColdIdx");
-        StringBuilder asthmaUrlBuilder = new StringBuilder(Constants.index_server + "/getAsthmaIdx");
-
+        StringBuilder urlBuilder = new StringBuilder(Constants.newsky_server);
         try {
+            //Constant에 있는 변수를 가져오기 위한 문자로 동일한 부분 미리 초기화
+            param_X = new StringBuilder("X_");
+            param_Y = new StringBuilder("Y_");
+            param_STN = new StringBuilder("STN_");
+
+            //사용자 지역 번호 넣기
+            param_X.append(area_num);
+            param_Y.append(area_num);
+            param_STN.append(area_num);
 
             Calendar calendar = Calendar.getInstance();
             //calendar.add(Calendar.DATE, 1);
@@ -203,30 +211,33 @@ public class MainActivity extends AppCompatActivity {
             String todaystr = new SimpleDateFormat(dateformat).format(today);
             int todaystr2 = Integer.parseInt(new SimpleDateFormat(dateformat2).format(today));
             Log.w("today is : ", todaystr + todaystr2);
-            if (todaystr2 < 06) todaystr = String.valueOf(Integer.parseInt(todaystr) - 1);
+            if (todaystr2 < 05) todaystr = String.valueOf(Integer.parseInt(todaystr) - 1);
             Log.w("[setting] today is : ", todaystr + todaystr2);
 
-            coldUrlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + Constants.index_serviceKey); //Service Key
-            coldUrlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); //페이지 번호
-            coldUrlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("70", "UTF-8")); //한 페이지 결과 수
-            coldUrlBuilder.append("&" + URLEncoder.encode("areaNo", "UTF-8") + "=" + URLEncoder.encode("1100000000", "UTF-8")); //05시 발표 * 기술문서 참조
-            coldUrlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "=" + URLEncoder.encode("JSON", "UTF-8")); //xml(기본값), json
-            coldUrlBuilder.append("&" + URLEncoder.encode("time", "UTF-8") + "=" + URLEncoder.encode(todaystr + todaystr2, "UTF-8"));
+            String param_x, param_y;
+            param_x = (String) Constants.class.getField(param_X.toString()).get(null);
+            param_y = (String) Constants.class.getField(param_Y.toString()).get(null);
+            urlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + Constants.newsky_serviceKey); //Service Key
+            urlBuilder.append("&" + URLEncoder.encode("base_date", "UTF-8") + "=" + URLEncoder.encode(todaystr, "UTF-8"));
+            urlBuilder.append("&" + URLEncoder.encode("base_time", "UTF-8") + "=" + URLEncoder.encode(Constants.base_time, "UTF-8")); //05시 발표 * 기술문서 참조
+            urlBuilder.append("&" + URLEncoder.encode("nx", "UTF-8") + "=" + URLEncoder.encode(param_x, "UTF-8")); //예보지점의 X 좌표값
+            urlBuilder.append("&" + URLEncoder.encode("ny", "UTF-8") + "=" + URLEncoder.encode(param_y, "UTF-8")); //예보지점의 Y 좌표값
+            urlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("70", "UTF-8")); //한 페이지 결과 수
+            urlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); //페이지 번호
+            urlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "=" + URLEncoder.encode("JSON", "UTF-8")); //xml(기본값), json
 
-            asthmaUrlBuilder.append("?" + URLEncoder.encode("ServiceKey", "UTF-8") + "=" + Constants.index_serviceKey); //Service Key
-            asthmaUrlBuilder.append("&" + URLEncoder.encode("pageNo", "UTF-8") + "=" + URLEncoder.encode("1", "UTF-8")); //페이지 번호
-            asthmaUrlBuilder.append("&" + URLEncoder.encode("numOfRows", "UTF-8") + "=" + URLEncoder.encode("70", "UTF-8")); //한 페이지 결과 수
-            asthmaUrlBuilder.append("&" + URLEncoder.encode("areaNo", "UTF-8") + "=" + URLEncoder.encode("1100000000", "UTF-8")); //05시 발표 * 기술문서 참조
-            asthmaUrlBuilder.append("&" + URLEncoder.encode("dataType", "UTF-8") + "=" + URLEncoder.encode("JSON", "UTF-8")); //xml(기본값), json
-            asthmaUrlBuilder.append("&" + URLEncoder.encode("time", "UTF-8") + "=" + URLEncoder.encode(todaystr + todaystr2, "UTF-8"));
         } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
 
-        Log.w("error_test", coldUrlBuilder.toString());
+        Log.w("error_test", urlBuilder.toString());
 
 
-        AsyncTask<String, String, String> finish_check = new JSONTask().execute(coldUrlBuilder.toString(), asthmaUrlBuilder.toString());//AsyncTask 시작시킴
+        AsyncTask<String, String, String> finish_check = new JSONTask().execute(urlBuilder.toString());//AsyncTask 시작시킴
 
         try {
             String s = finish_check.get();
@@ -243,12 +254,12 @@ public class MainActivity extends AppCompatActivity {
 
                 if (tabId == R.id.tab_main) {
                     Bundle args = new Bundle();
-                    Log.w("result_cold", cold_index);
-                    Log.w("result_asthma", asthma_index);
+                    Log.w("result_cold", result_cold);
+                    Log.w("result_asthma", result_asthma);
                     JSONObject jsonObject = new JSONObject();
                     try {
-                        jsonObject.put("cold_index", cold_index);
-                        jsonObject.put("asthma_index", asthma_index);
+                        jsonObject.put("cold_index", result_cold);
+                        jsonObject.put("asthma_index", result_asthma);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -374,7 +385,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (pressTime == 0) {
-            Toast.makeText(MainActivity.this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_LONG).show();
+            Toast.makeText(PastMainActivity.this, "한번 더 누르면 종료됩니다.", Toast.LENGTH_LONG).show();
             pressTime = System.currentTimeMillis();
         } else {
             int seconds = (int) (System.currentTimeMillis() - pressTime);
@@ -447,8 +458,6 @@ public class MainActivity extends AppCompatActivity {
             if (SqliteFunction.today > sf.getInt("today", 20200000)) {
 
                 try {
-
-                    ///////////////////////////////////////////////////////////////////////////////////////
                     URL url = new URL(urls[0]);
 
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -482,103 +491,72 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("stage1", "onPostexecute");
 
                     JSONObject obj = null;
+                    //습도 : REH , 최저: TMN, 최고: TMX
+                    try {
+                        obj = new JSONObject(result).getJSONObject("response").getJSONObject("body").getJSONObject("items"); //객체 내에서 객체 가져오기
+                        Log.w("REH,TMN,TMX JSONObject", new JSONObject(result).getJSONObject("response").getJSONObject("body").getJSONObject("items").toString());
+                        String temp_string = obj.getString("item"); //실제 값을 찾을 곳
+                        JSONArray array = new JSONArray(temp_string);
 
-                    obj = new JSONObject(result).getJSONObject("response").getJSONObject("body").getJSONObject("items"); //객체 내에서 객체 가져오기
+                        int max_temp = 0; //수분, 최고온도, 최저온도
 
-                    JSONArray temp_string = obj.getJSONArray("item"); //실제 값을 찾을 곳
-                    JSONObject tmp = temp_string.getJSONObject(0);
-                    Log.w("index_url_result", tmp.toString());
+                        for (int i = 0; i < array.length(); i++) {
+                            JSONObject object = array.getJSONObject(i);
+                            if (object.getString("category").equals("REH"))
+                                humidity += object.getInt("fcstValue"); //수분은 시간대 별로 총 7번 있음
 
-                    cold_index = tmp.get("today").toString();
-                    Log.w("index_cold_index", cold_index);
-                    if (cold_index.equals("")) cold_index = "0";
+                            if (object.getString("category").equals("TMN"))
+                                min_temp = object.getInt("fcstValue");
 
-                    switch (Integer.parseInt(cold_index)) {
-                        case 0:
-                            cold_index = "양호";
-                            break;
-                        case 1:
-                            cold_index = "보통";
-                            break;
-                        case 2:
-                            cold_index = "위험";
-                            break;
-                        case 3:
-                            cold_index = "매우위험";
-                            break;
+                            if (object.getString("category").equals("TMX"))
+                                max_temp = object.getInt("fcstValue");
+
+                        }
+                        humidity = humidity / 7; //평균습도
+                        sub = max_temp - min_temp; //일교차
+
+                        Log.w("error_test", "" + humidity + ", " + sub);
+
+                        /* 평균습도, 일교차, 최저기온을 다 가져오면
+                         * 기압정보 가져오기 위한 api 호출
+                         */
+
+
+                        Document doc = Jsoup.connect(Constants.kma_server).post();
+
+                        Log.w("stage3", doc.toString());
+
+                        //테스트1
+                        Elements titles = doc.select("table.table_develop3 tr");
+
+                        System.out.println("-------------------------------------------------------------");
+
+                        Elements pressure_elmt = titles.get((int) Constants.class.getField(param_STN.toString()).get(null)).select("td:eq(12)");
+
+                        String result_pressure = pressure_elmt.text();
+
+                        //기압 받아오기
+                        pressure = Float.parseFloat(result_pressure);
+                        Cold cold = new Cold(0, min_temp, sub, humidity, pressure);
+                        result_cold = cold.cal_cold();
+                        Asthma asthma = new Asthma(0, min_temp, sub, humidity, pressure);
+                        result_asthma = asthma.cal_asthma();
+
+                        editor.putInt("today", SqliteFunction.today);
+                        editor.putString("result_cold", result_cold);
+                        editor.putString("result_asthma", result_asthma);
+                        editor.commit();
+                        Log.w("result_cold sf compl: ", SqliteFunction.today + ": result_cold - " + sf.getString("result_cold", "null"));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchFieldException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
                     }
 
-
-                    editor.putInt("today", SqliteFunction.today);
-                    editor.putString("cold_index", cold_index);
-                    Log.w("cold sf compl: ", SqliteFunction.today + ": cold_index - " + sf.getString("cold_index", "null"));
-
-
-                    ///////////////////////////////////////////////////////////////////////////////////////
-                    url = new URL(urls[1]);
-
-                    con = (HttpURLConnection) url.openConnection();
-                    con.setRequestMethod("GET");
-                    con.setConnectTimeout(100000);
-                    con.setReadTimeout(100000);
-                    con.setRequestProperty("Content-Type", "application/json");
-                    con.setRequestProperty("Accept", "application/json");
-                    con.setDoInput(true); //  HERE
-                    con.connect();
-
-                    //서버로 부터 데이터를 받음
-
-                    if (con.getResponseCode() >= 200 && con.getResponseCode() <= 300) {
-                        rd = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                    } else {
-                        rd = new BufferedReader(new InputStreamReader(con.getErrorStream()));
-                    }
-                    sb = new StringBuilder();
-
-                    while ((line = rd.readLine()) != null) {
-                        sb.append(line);
-                    }
-
-                    rd.close();
-                    con.disconnect();
-                    System.out.println(sb.toString());
-
-                    result = sb.toString();//서버로 부터 받은 값을 리턴해줌 아마 OK!!가 들어올것임
-
-                    Log.w("stage1", "onPostexecute");
-
-                    obj = new JSONObject(result).getJSONObject("response").getJSONObject("body").getJSONObject("items"); //객체 내에서 객체 가져오기
-                    temp_string = obj.getJSONArray("item"); //실제 값을 찾을 곳
-                    tmp = temp_string.getJSONObject(0);
-                    Log.w("index_url_result", tmp.toString());
-
-                    asthma_index = tmp.get("today").toString();
-                    Log.w("index_asthma_index", asthma_index);
-                    if (asthma_index.equals("")) asthma_index = "0";
-
-                    switch (Integer.parseInt(asthma_index)) {
-                        case 0:
-                            asthma_index = "양호";
-                            break;
-                        case 1:
-                            asthma_index = "보통";
-                            break;
-                        case 2:
-                            asthma_index = "위험";
-                            break;
-                        case 3:
-                            asthma_index = "매우위험";
-                            break;
-                    }
-
-
-                    editor.putString("asthma_index", asthma_index);
-                    editor.commit();
-                    Log.w("asthma sf compl: ", SqliteFunction.today + ": asthma_index - " + sf.getString("asthma_index", "null"));
-
-
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 } catch (ProtocolException e) {
                     e.printStackTrace();
                 } catch (MalformedURLException e) {
@@ -586,10 +564,9 @@ public class MainActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
             } else {
-                cold_index = sf.getString("cold_index", "변동");
-                asthma_index = sf.getString("asthma_index", "변동");
+                result_cold = sf.getString("result_cold", "변동");
+                result_asthma = sf.getString("result_asthma", "변동");
             }
             return null;
         }

@@ -23,6 +23,9 @@ public class Constants {
     public final static String newsky_server = "http://apis.data.go.kr/1360000/VilageFcstInfoService/getVilageFcst";
     public final static String newsky_serviceKey = "yli51XHsdqgKRA7JW9qYvwBP0CKUbxbvMSYX0ylJ3vBoiMEURfJYLNcMzDiqaHBGyltEUqTbaE6msFv04Jj%2FLg%3D%3D";
     public final static String kma_server = "https://www.weather.go.kr/weather/observation/currentweather.jsp?type=t99&mode=0&stn=0&reg=100&auto_man=a";
+    public final static String atm_server = "http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList";
+    public final static String index_server = "http://apis.data.go.kr/1360000/HealthWthrIdxService";
+    public final static String index_serviceKey = "yli51XHsdqgKRA7JW9qYvwBP0CKUbxbvMSYX0ylJ3vBoiMEURfJYLNcMzDiqaHBGyltEUqTbaE6msFv04Jj%2FLg%3D%3D";
 
     public final static String X_0 = "73";
     public final static String X_1 = "92";
