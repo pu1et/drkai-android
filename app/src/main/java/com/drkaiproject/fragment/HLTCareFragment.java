@@ -264,7 +264,7 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
 
         int length = result_6days.length;
 
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length; i++) { 
             String tmp = date_6days[length - 1 - i];
             tmp = tmp.substring(5,7) + "/" + tmp.substring(8);
             Log.i("showData tmp",tmp);
