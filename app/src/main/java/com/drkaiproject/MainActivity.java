@@ -453,8 +453,8 @@ public class MainActivity extends AppCompatActivity {
 
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
-                    con.setConnectTimeout(100000);
-                    con.setReadTimeout(100000);
+                    con.setConnectTimeout(50000);
+                    con.setReadTimeout(50000);
                     con.setRequestProperty("Content-Type", "application/json");
                     con.setRequestProperty("Accept", "application/json");
                     con.setDoInput(true); //  HERE
