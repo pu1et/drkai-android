@@ -299,8 +299,8 @@ public class MainActivity extends AppCompatActivity {
         Log.w("onOptionsItemSelected", String.valueOf(item.getItemId()));
 
         switch (item.getItemId()) {
-            case android.R.id.home: 
-                drawerLayout.openDrawer(GravityCompat.START);
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START); 
                 return true;
             case R.id.item0:
 
