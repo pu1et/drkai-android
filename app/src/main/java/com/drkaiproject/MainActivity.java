@@ -300,9 +300,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case android.R.id.home:
-                drawerLayout.openDrawer(GravityCompat.START); 
+                drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.item0:
+            case R.id.item0: 
 
                 Toast.makeText(this, "회원정보 수정 기능 입니다.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, UserIconActivity.class);
