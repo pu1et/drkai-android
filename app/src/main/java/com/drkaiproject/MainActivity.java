@@ -70,6 +70,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -78,16 +79,12 @@ import static com.drkaiproject.sqliteHelper.SqliteFunction.allHealthSQLiteHelper
 
 public class MainActivity extends AppCompatActivity {
     private MainFragment mainFragment;
-    private RMTDiagFragment rmtDiagFragment;
     private ChatbotFragment chatbotFragment;
     private DiagFragment diagFragment;
     private HLTCareFragment hltCareFragment;
-    private String id, area_num, name;
-    private ActionBar actionBar;
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle mToggle;
     private ExpandableListView expandableListView;
-    private FirstLevelAdapter listAdapter;
     private List<String> listDataHeader;
     private HashMap<String, List<String>> listDataChild;
     private NavigationView navigationView;
@@ -99,6 +96,8 @@ public class MainActivity extends AppCompatActivity {
 
     private long pressTime;
     private JSONObject HLTJSONObject, caIdxJSONObject;
+    String id, name, phone;
+    int gender, area, checked;
 
 
     @Override
@@ -106,32 +105,48 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SqliteFunction.id = "1";
-        SqliteFunction.gender = 0; // 여자
-        SqliteFunction.mCtx = MainActivity.this;
+        Intent intent = getIntent();
+        JSONObject fromMain;
+        try {
+            fromMain = new JSONObject(intent.getExtras().getString("user"));
+            id = fromMain.getString("id");
+            name = fromMain.getString("name");
+            gender = Integer.parseInt(fromMain.getString("gender"));
+            area = Integer.parseInt(fromMain.getString("area"));
+            phone = fromMain.getString("phone");
+            checked = Integer.parseInt(fromMain.getString("checked"));
 
-        Date today_tmp = Calendar.getInstance().getTime();
-        String today_text = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(today_tmp);
-        SqliteFunction.today = Integer.parseInt(today_text);
+            SqliteFunction.id = id;
+            SqliteFunction.gender = gender; // 0,1 (여,남)
+            SqliteFunction.mCtx = MainActivity.this;
 
-        allHealthSQLiteHelper = new AllHealthSQLiteHelper(MainActivity.this, "allHealthTBL.db", null, 1);
-        SqliteFunction.db = allHealthSQLiteHelper.getWritableDatabase();
-        //db.execSQL("delete from allHealthTBL;");
-        allHealthSQLiteHelper.onCreate(SqliteFunction.db);
+            Date today_tmp = Calendar.getInstance().getTime();
+            String today_text = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(today_tmp);
+            SqliteFunction.today = Integer.parseInt(today_text);
+
+            allHealthSQLiteHelper = new AllHealthSQLiteHelper(MainActivity.this, "allHealthTBL.db", null, 1);
+            SqliteFunction.db = allHealthSQLiteHelper.getWritableDatabase();
+            //SqliteFunction.db.execSQL("delete from allHealthTBL;");
+            allHealthSQLiteHelper.onCreate(SqliteFunction.db);
+
+            sf = getSharedPreferences("sfFile", MODE_PRIVATE);
+            editor = sf.edit();
+
+            editor.putString("user_id", id);
+            editor.putString("user_name", name);
+            editor.putInt("user_gender", gender);
+            editor.putInt("user_area", area);
+            editor.putString("user_name", phone);
+            editor.putInt("user_gender", checked);
+            editor.apply();
 
 
-        sf = getSharedPreferences("sfFile", MODE_PRIVATE);
-        editor = sf.edit();
-        if (sf.getString("user_id", null) == null) {
-            //editor.clear();
-            editor.putString("user_name", "안지원");
-            editor.putString("user_email", "default@gmail.com");
-            editor.putString("user_id", "1");
-            editor.putString("user_area", "1");
-            editor.commit();
+        } catch (JSONException e) {
+            e.printStackTrace();
+
         }
-        Log.w("sharedpreference", sf.getString("user_id", "null"));
-        area_num = sf.getString("user_area", "1");
+        Log.w("sharedpreference", sf.getString("user_id", "0"));
+
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -169,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
         caIdxJSONObject = new JSONObject();
 
         try {
-            HLTJSONObject.put("id", "1");
+            HLTJSONObject.put("id", id);
             HLTJSONObject.put("date_id", SqliteFunction.today);
             caIdxJSONObject.put("today", SqliteFunction.today);
         } catch (JSONException e) {
@@ -185,9 +200,7 @@ public class MainActivity extends AppCompatActivity {
                     HLTResp = threadB1.execute(Constants.SERVER_URL + "/dayHealth_s", HLTJSONObject.toString()).get();
                     Constants.VolleySync threadB2 = new Constants.VolleySync(getApplicationContext());
                     caIdxResp = threadB2.execute(Constants.SERVER_URL + "/get_caIdx", caIdxJSONObject.toString()).get();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
+                } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }
                 try {
@@ -220,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(caIdx_data);
                         cold_index = cal_caIdx(Integer.parseInt(jsonObject.getString("cold_index")));
                         asthma_index = cal_caIdx(Integer.parseInt(jsonObject.getString("asthma_index")));
-                        Log.v("cold_index, asthma_index", cold_index + ", "+asthma_index);
+                        Log.v("cold_index, asthma_index", cold_index + ", " + asthma_index);
 
                     }
                     runOnUiThread(new Runnable() {
@@ -309,26 +322,10 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
-            case R.id.item0: 
+            case R.id.item0:
 
                 Toast.makeText(this, "회원정보 수정 기능 입니다.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(this, UserIconActivity.class);
-
-                JSONObject jsonObject_tmp = new JSONObject();
-                try {
-                    jsonObject_tmp.put("id", "1");
-                    jsonObject_tmp.put("pw", "1");
-                    jsonObject_tmp.put("name", "Jiwon");
-                    jsonObject_tmp.put("gender", "0");
-                    jsonObject_tmp.put("area", "1");
-                    jsonObject_tmp.put("age", "25");
-                    jsonObject_tmp.put("phone", "01029315201");
-                    jsonObject_tmp.put("carstairs", "4");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                intent.putExtra("account", jsonObject_tmp.toString());
                 startActivity(intent);
                 break;
 
@@ -394,11 +391,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public String cal_caIdx(int idx){
-        if(idx == 0) return "양호";
-        else if(idx == 1) return "보통";
-        else if(idx == 2) return "위험";
-        else if(idx == 3) return "매우위험";
+    public String cal_caIdx(int idx) {
+        if (idx == 0) return "양호";
+        else if (idx == 1) return "보통";
+        else if (idx == 2) return "위험";
+        else if (idx == 3) return "매우위험";
         return null;
     }
 

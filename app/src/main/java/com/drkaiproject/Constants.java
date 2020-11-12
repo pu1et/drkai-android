@@ -124,13 +124,19 @@ public class Constants {
             JSONObject object = null;
             try{
                 object = future.get(10, TimeUnit.SECONDS);
-                if(object.get("result").equals("1")) return object;
-                else return null;
+                if(object.get("result").equals("0")) return null;
+                else return object;
             }catch (InterruptedException | ExecutionException | TimeoutException | JSONException e){
                 e.printStackTrace();
             }
             return null;
         }
+    }
+
+    public static String areaNumtoStr(int area){
+        String[] str_are = {"강원도(영서)", "강원도(영동)", "서울", "인천", "경기", "충북", "대전/충남", "대구/경북", "전북", "울산", "경남", "광주", "부산",
+                "전남", "제주", "서귀포"};
+        return str_are[area];
     }
 
 }

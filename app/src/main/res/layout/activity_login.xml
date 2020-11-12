@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <EditText
-                android:id="@+id/user_email"
+                android:id="@+id/user_id"
                 android:layout_width="220dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="47.2dp"
@@ -65,7 +65,7 @@
                 android:layout_height="17dp"
                 android:layout_marginTop="11dp"
                 android:src="@drawable/user"
-                app:layout_constraintEnd_toStartOf="@+id/user_email"
+                app:layout_constraintEnd_toStartOf="@+id/user_id"
                 app:layout_constraintStart_toStartOf="@+id/email_btn"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
