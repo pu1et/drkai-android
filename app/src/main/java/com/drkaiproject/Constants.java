@@ -1,5 +1,27 @@
 package com.drkaiproject;
 
+import android.content.AsyncQueryHandler;
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.RequestFuture;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 public class Constants {
 
     //기압
@@ -74,10 +96,41 @@ public class Constants {
     public final static int hepatitis_gravity [] = {1, 3, 3, 3, 2, 2, 1, 3};
     public final static int cirrhosis_gravity [] = {2, 3, 3, 3, 1, 3, 1, 2};
 
-    //String url = "https://nodejs105.azurewebsites.net";
-    // String url = "http://192.168.247.1:1337/check_user";
-    //String url = "http://192.168.43.204:1337/check_user";
     public final static String SERVER_URL = "http://ec2-54-203-95-119.us-west-2.compute.amazonaws.com:1337";
     // public final static String SERVER_URL = "http://192.168.43.204:1337";
+
+
+    //RequestFuture Main UI Thread XXX, must create A New Thread
+    public static class VolleySync extends AsyncTask<String, Void, JSONObject> {
+        private Context mCtx;
+
+        public VolleySync(Context ctx){
+            mCtx = ctx;
+        }
+
+        @Override
+        protected JSONObject doInBackground(String... params){
+            final String url = params[0];
+            JSONObject jsonObject = null;
+            try {
+                jsonObject = new JSONObject(params[1]);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            final RequestQueue queue = Volley.newRequestQueue(mCtx.getApplicationContext());
+            RequestFuture<JSONObject> future = RequestFuture.newFuture();
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, future, future);
+            queue.add(request);
+            JSONObject object = null;
+            try{
+                object = future.get(10, TimeUnit.SECONDS);
+                if(object.get("result").equals("1")) return object;
+                else return null;
+            }catch (InterruptedException | ExecutionException | TimeoutException | JSONException e){
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
 
 }

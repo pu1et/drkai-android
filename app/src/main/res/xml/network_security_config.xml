@@ -2,4 +2,7 @@
 <network-security-config>
     <!--Set application-wide security config using base-config tag.-->
     <base-config cleartextTrafficPermitted="true"/>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">ec2-54-203-95-119.us-west-2.compute.amazonaws.com</domain>
+    </domain-config>
 </network-security-config>
