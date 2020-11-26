@@ -37,7 +37,7 @@
             android:value="78800aad9a2cf6861cfc013c99861ba3" />
 
         <activity android:name=".JoinActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:windowSoftInputMode="adjustPan" android:name=".MainActivity" />
         <activity android:name=".ServeyStart" />
         <activity android:name=".ServeyActivity" />
         <activity android:name=".HealthServeyActivity" />

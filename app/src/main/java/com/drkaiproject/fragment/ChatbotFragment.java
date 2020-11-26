@@ -9,17 +9,30 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.drkaiproject.Constants;
 import com.drkaiproject.R;
+import com.drkaiproject.chat.ChatAdapter;
+import com.drkaiproject.chat.ChatItem;
 import com.drkaiproject.lex.InteractiveVoiceActivity;
 import com.drkaiproject.lex.TextActivity;
 
 import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,11 +48,10 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
     private String mParam1;
     private String mParam2;
 
-    private JSONObject jsonObject;
-    private static final String TAG = "MainActivity";
-    private static final int REQUEST_RECORDING_PERMISSIONS_RESULT = 75;
-    private Button textDemoButton;
-    private Button speechDemoButton;
+    private AppCompatImageButton btn_send;
+    private EditText msg_send;
+    private ChatAdapter chatAdapter;
+    private ArrayList<ChatItem> chatList;
 
 
     public ChatbotFragment() {
@@ -72,53 +84,49 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         Log.w("fragment changed","oncreateview");
         View view = inflater.inflate(R.layout.fragment_chatbot, container, false);
-        init(view);
+
+        chatList = new ArrayList<>();
+        chatAdapter = new ChatAdapter(chatList);
+
+        btn_send = view.findViewById(R.id.btn_send);
+        msg_send = view.findViewById(R.id.msg_send);
+
+        btn_send.setOnClickListener(this);
+
+        getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
+        final RecyclerView recyclerView = view.findViewById(R.id.chat_list);
+        final LinearLayoutManager manager = new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false);
+
+        manager.setReverseLayout(true);
+        manager.setStackFromEnd(true);
 
 
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setAdapter(chatAdapter);
+
+
+        Date now = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+        String time = format.format(now);
+
+        try {
+            String openResp = new Constants.ChatBot(view.getContext()).execute((String) null).get();//AsyncTask 시작시킴
+            //String sendResp = new Constants.ChatBot(getApplicationContext()).execute("너는 뭐해").get();
+            if(openResp != null ){//|| sendResp != null) {
+                String openMsg = Constants.ext_from_openMsg(openResp);
+                //sendResp = Constants.ext_from_sendMsg(sendResp);
+                chatList.add(new ChatItem("챗봇", openMsg, time, Constants.LEFT_MSG));
+                Log.v("chatList","[left] msg: "+openMsg);
+            }
+
+        } catch (ExecutionException | InterruptedException e) {
+            e.printStackTrace();
+        }
 
 
         return view;
-    }
-
-    /**
-     * Initializes the application.
-     */
-    private void init(View view) {
-        Log.e(TAG, "Initializing app");
-
-        textDemoButton = (Button) view.findViewById(R.id.button_select_text);
-        speechDemoButton = (Button) view.findViewById(R.id.button_select_voice);
-        textDemoButton.setOnClickListener(this);
-        speechDemoButton.setOnClickListener(this);
-
-        // Starting with Marshmallow we need to explicitly ask if we can record audio
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.RECORD_AUDIO) ==
-                    PackageManager.PERMISSION_GRANTED) {
-                speechDemoButton.setEnabled(true);
-            } else {
-                requestPermissions(new String[]{Manifest.permission.RECORD_AUDIO}, REQUEST_RECORDING_PERMISSIONS_RESULT);
-            }
-        } else {
-            speechDemoButton.setEnabled(true);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if (requestCode == REQUEST_RECORDING_PERMISSIONS_RESULT) {
-            if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(getContext(),
-                        "LexSample will not be able to use the voice feature", Toast.LENGTH_SHORT).show();
-
-                // Disable the button
-                speechDemoButton.setEnabled(false);
-            } else {
-                speechDemoButton.setEnabled(true);
-            }
-        }
     }
 
     /**
@@ -128,13 +136,32 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
      */
     public void onClick(final View v) {
         switch ((v.getId())) {
-            case R.id.button_select_text:
-                Intent textIntent = new Intent(getContext(), TextActivity.class);
-                startActivity(textIntent);
-                break;
-            case R.id.button_select_voice:
-                Intent voiceIntent = new Intent(getContext(), InteractiveVoiceActivity.class);
-                startActivity(voiceIntent);
+            case R.id.btn_send:
+                Date now = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+                String msg = msg_send.getText().toString();
+                String time = format.format(now);
+
+                chatList.add(0,new ChatItem(null, msg, time, Constants.RIGHT_MSG));
+                chatAdapter.notifyDataSetChanged();
+                msg_send.setText("");
+
+                try {
+                    String sendResp = new Constants.ChatBot(getView().getContext()).execute(msg).get();
+                    if(sendResp != null) {
+                        String sendMsg = Constants.ext_from_openMsg(sendResp);
+                        if(sendMsg == null) sendMsg = Constants.ext_from_sendMsg(sendResp);
+                        chatList.add(0,new ChatItem("챗봇", sendMsg, time, Constants.LEFT_MSG));
+                        chatAdapter.notifyDataSetChanged();
+                        Log.v("chatList","[left] msg: "+sendMsg);
+                    }
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Log.v("chatList","[right] msg: "+msg);
                 break;
         }
     }
