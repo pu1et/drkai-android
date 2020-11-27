@@ -9,12 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -26,6 +28,7 @@ import com.drkaiproject.chat.ChatAdapter;
 import com.drkaiproject.chat.ChatItem;
 import com.drkaiproject.lex.InteractiveVoiceActivity;
 import com.drkaiproject.lex.TextActivity;
+import com.roughike.bottombar.BottomBar;
 
 import org.json.JSONObject;
 
@@ -124,6 +127,21 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
         } catch (ExecutionException | InterruptedException e) {
             e.printStackTrace();
         }
+
+        final ConstraintLayout rootLayout = view.findViewById(R.id.fragment_chatbot_layout);
+        rootLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                BottomBar bottomBar = getActivity().findViewById(R.id.bottombar);
+                int heightdiff = rootLayout.getRootView().getHeight() - rootLayout.getHeight();
+                Log.v("heightdiff",""+heightdiff);
+                if(heightdiff > 500){
+                        bottomBar.setVisibility(View.GONE);
+                }else{
+                    bottomBar.setVisibility(View.VISIBLE);
+                }
+            }
+        });
 
 
         return view;
