@@ -57,7 +57,7 @@ public class Constants {
     public final static String base_time = "0500"; // 0200, 0500, 0800, 1100, 1400, 1700, 2000, 2300
 
 
-    public final static String SERVER_URL = "http://ec2-54-203-95-119.us-west-2.compute.amazonaws.com:1337";
+    public final static String SERVER_URL = "http://ec2-44-235-212-15.us-west-2.compute.amazonaws.com:1337";
     public final static String Chatbot_svKey = "RlN3QXZuQ1hRTE5PU0pNSndzT3JJUkFKcmpvQ0dCV1k=";
     public final static String Chatbot_URL = "https://6e0e011f4b514540b7793dd5005492bd.apigw.ntruss.com/custom/v1/3611/d1df14c67ffdde8e9444cba9b473cb9959a356162d3212753963acb6513eb132";
 
@@ -83,6 +83,7 @@ public class Constants {
             }
             final RequestQueue queue = Volley.newRequestQueue(mCtx.getApplicationContext());
             RequestFuture<JSONObject> future = RequestFuture.newFuture();
+            Log.d("POST: ",url+", "+jsonObject.toString());
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, jsonObject, future, future);
             queue.add(request);
             JSONObject object = null;
