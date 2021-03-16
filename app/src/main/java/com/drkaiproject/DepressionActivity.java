@@ -33,8 +33,6 @@ public class DepressionActivity extends AppCompatActivity {
             depSpin11, depSpin12, depSpin13, depSpin14, depSpin15, depSpin16, depSpin17;
     RadioButton check_A, check_B;
     JSONObject jsonObject;
-    String id;
-    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +49,6 @@ public class DepressionActivity extends AppCompatActivity {
         check_A = (RadioButton) findViewById(R.id.check_A);
         check_B = (RadioButton) findViewById(R.id.check_B);
 
-        sp = this.getSharedPreferences("sfData", Context.MODE_PRIVATE);
-
         findMethod();
         spinMethod();
 
@@ -60,12 +56,6 @@ public class DepressionActivity extends AppCompatActivity {
         String str = intent.getExtras().getString("account");
         try {
             jsonObject = new JSONObject(str);
-            sp.edit().putString("id", jsonObject.getString("id"));
-            sp.edit().putString("pw", jsonObject.getString("pw"));
-            sp.edit().putString("name", jsonObject.getString("name"));
-            sp.edit().putString("age", jsonObject.getString("age"));
-
-            sp.edit().commit();
         } catch (JSONException e) {
             e.printStackTrace();
         }
