@@ -30,6 +30,7 @@ import com.drkaiproject.algorithmn.Hepatitis;
 import com.drkaiproject.algorithmn.LungDisease;
 import com.drkaiproject.algorithmn.Myocardial;
 import com.drkaiproject.algorithmn.Stroke;
+import com.drkaiproject.sqliteHelper.SqliteFunction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -71,7 +72,6 @@ public class HealthServeyActivity extends AppCompatActivity {
     JSONObject jsonObject,diseaseObject;
     Double diabetes_risk, myocardial_risk, hepatitisA_risk, cirrhosis_risk, gastriculcer_risk, lungdisease_risk, stroke_risk;
     String depression_risk;
-    SharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,19 +80,13 @@ public class HealthServeyActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        SharedPreferences sf = getSharedPreferences("sfFile",MODE_PRIVATE);
-        id = sf.getString("user_id",null);
-
         findMethod();
 
-        sp = this.getSharedPreferences("sfData", Context.MODE_PRIVATE);
         Intent intent = getIntent();
         String str = intent.getExtras().getString("account");
         try {
             jsonObject = new JSONObject(str); // <= 이전 intent의 모든 데이터 json 형태
-            if(id == null) {
-                id = jsonObject.getString("id");
-            }
+            id = jsonObject.getString("id");
             age = jsonObject.getString("age");
             gender = jsonObject.getString("gender");
             area_num = jsonObject.getString("area");
