@@ -83,7 +83,7 @@
                 android:id="@+id/user_pw"
                 android:layout_width="220dp"
                 android:layout_height="25dp"
-                android:layout_marginStart="50dp"
+                android:layout_marginStart="47.2dp"
                 android:layout_marginTop="3dp"
                 android:background="@null"
                 android:gravity="start|top"
