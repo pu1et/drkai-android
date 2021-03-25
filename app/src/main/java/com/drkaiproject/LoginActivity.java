@@ -110,7 +110,7 @@ public class LoginActivity extends AppCompatActivity {
                                                 toMain.put("area", login_data.getString("area"));
                                                 toMain.put("age", login_data.getString("age"));
                                                 toMain.put("phone", login_data.getString("phone"));
-                                                toMain.put("checked", login_data.getString("phone"));
+                                                toMain.put("checked", login_data.getString("checked"));
                                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                                 intent.putExtra("user", toMain.toString());
                                                 startActivity(intent);
