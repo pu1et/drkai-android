@@ -1,6 +1,7 @@
 package com.drkaiproject.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.drkaiproject.menu.UserInfoChange1;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -79,28 +82,10 @@ public class DiagFragment extends Fragment {
         go_modify_info.setClickable(true);
         go_rmtdiag.setClickable(true);
 
-
-
         go_predig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), DepressionTest.class);
-
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("id", "1");
-                    jsonObject.put("pw", "1");
-                    jsonObject.put("name", "Jiwon");
-                    jsonObject.put("gender", "0");
-                    jsonObject.put("area", "1");
-                    jsonObject.put("age", "25");
-                    jsonObject.put("phone", "01029315201");
-                    jsonObject.put("carstairs", "4");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                intent.putExtra("account", jsonObject.toString());
                 startActivity(intent);
             }
         });
@@ -116,22 +101,6 @@ public class DiagFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), UserInfoChange1.class);
-
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("id", "1");
-                    jsonObject.put("pw", "1");
-                    jsonObject.put("name", "Jiwon");
-                    jsonObject.put("gender", "0");
-                    jsonObject.put("area", "1");
-                    jsonObject.put("age", "25");
-                    jsonObject.put("phone", "01029315201");
-                    jsonObject.put("carstairs", "4");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-
-                intent.putExtra("account", jsonObject.toString());
                 startActivity(intent);
             }
         });
