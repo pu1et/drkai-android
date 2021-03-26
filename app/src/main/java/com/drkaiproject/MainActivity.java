@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     private long pressTime;
     private JSONObject HLTJSONObject, caIdxJSONObject;
-    String id, name, phone;
+    String id, name, phone, age;
     int gender, area, checked;
 
 
@@ -107,46 +107,49 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         JSONObject fromMain;
-        try {
-            fromMain = new JSONObject(intent.getExtras().getString("user"));
-            id = fromMain.getString("id");
-            name = fromMain.getString("name");
-            gender = Integer.parseInt(fromMain.getString("gender"));
-            area = Integer.parseInt(fromMain.getString("area"));
-            phone = fromMain.getString("phone");
-            checked = Integer.parseInt(fromMain.getString("checked"));
+        if(SqliteFunction.id == null) {
+            try {
+                fromMain = new JSONObject(intent.getExtras().getString("user"));
+                id = fromMain.getString("id");
+                name = fromMain.getString("name");
+                age = fromMain.getString("age");
+                gender = Integer.parseInt(fromMain.getString("gender"));
+                area = Integer.parseInt(fromMain.getString("area"));
+                phone = fromMain.getString("phone");
+                checked = Integer.parseInt(fromMain.getString("checked"));
 
-            SqliteFunction.id = id;
-            SqliteFunction.gender = gender; // 0,1 (여,남)
-            SqliteFunction.mCtx = MainActivity.this;
+                SqliteFunction.id = id;
+                SqliteFunction.gender = gender; // 0,1 (여,남)
+                SqliteFunction.mCtx = MainActivity.this;
 
-            Date today_tmp = Calendar.getInstance().getTime();
-            String today_text = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(today_tmp);
-            SqliteFunction.today = Integer.parseInt(today_text);
+                Date today_tmp = Calendar.getInstance().getTime();
+                String today_text = new SimpleDateFormat("yyyyMMdd", Locale.getDefault()).format(today_tmp);
+                SqliteFunction.today = Integer.parseInt(today_text);
 
-            allHealthSQLiteHelper = new AllHealthSQLiteHelper(MainActivity.this, "allHealthTBL.db", null, 1);
-            SqliteFunction.db = allHealthSQLiteHelper.getWritableDatabase();
-            //SqliteFunction.db.execSQL("delete from allHealthTBL;");
-            allHealthSQLiteHelper.onCreate(SqliteFunction.db);
+                allHealthSQLiteHelper = new AllHealthSQLiteHelper(MainActivity.this, "allHealthTBL.db", null, 1);
+                SqliteFunction.db = allHealthSQLiteHelper.getWritableDatabase();
+                //SqliteFunction.db.execSQL("delete from allHealthTBL;");
+                allHealthSQLiteHelper.onCreate(SqliteFunction.db);
 
-            sf = getSharedPreferences("sfFile", MODE_PRIVATE);
-            editor = sf.edit();
+                sf = SqliteFunction.mCtx.getSharedPreferences("sfFile", MODE_PRIVATE);
+                editor = sf.edit();
 
-            editor.putString("user_id", id);
-            editor.putString("user_name", name);
-            editor.putInt("user_gender", gender);
-            editor.putInt("user_area", area);
-            editor.putString("user_name", phone);
-            editor.putInt("user_gender", checked);
-            editor.apply();
+                editor.putString("user_id", id);
+                editor.putString("user_name", name);
+                editor.putString("user_age", age);
+                editor.putInt("user_gender", gender);
+                editor.putInt("user_area", area);
+                editor.putString("user_phone", phone);
+                editor.putInt("user_checked", checked);
+                editor.apply();
 
 
-        } catch (JSONException e) {
-            e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
 
+            }
+            Log.w("sharedpreference", sf.getString("user_id", "0"));
         }
-        Log.w("sharedpreference", sf.getString("user_id", "0"));
-
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -248,7 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
                             initFragment();
 
-                            BottomBar bottomBar = (BottomBar) findViewById(R.id.bottombar);
+                            BottomBar bottomBar = findViewById(R.id.bottombar);
                             bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
                                 @Override
                                 public void onTabSelected(int tabId) {
