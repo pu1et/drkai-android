@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.drkaiproject.Constants;
+import com.drkaiproject.MainActivity;
 import com.drkaiproject.R;
 import com.drkaiproject.chat.ChatAdapter;
 import com.drkaiproject.chat.ChatItem;
@@ -55,6 +56,7 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
     private EditText msg_send;
     private ChatAdapter chatAdapter;
     private ArrayList<ChatItem> chatList;
+    private BottomBar bottomBar;
 
 
     public ChatbotFragment() {
@@ -95,6 +97,7 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
         msg_send = view.findViewById(R.id.msg_send);
 
         btn_send.setOnClickListener(this);
+        bottomBar = ((MainActivity)getActivity()).findViewById(R.id.bottombar);
 
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 
@@ -132,10 +135,9 @@ public class ChatbotFragment extends Fragment implements View.OnClickListener{
         rootLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
-                BottomBar bottomBar = getActivity().findViewById(R.id.bottombar);
                 int heightdiff = rootLayout.getRootView().getHeight() - rootLayout.getHeight();
                 Log.v("heightdiff",""+heightdiff);
-                if(heightdiff > 500){
+                if(heightdiff > 600){
                         bottomBar.setVisibility(View.GONE);
                 }else{
                     bottomBar.setVisibility(View.VISIBLE);
