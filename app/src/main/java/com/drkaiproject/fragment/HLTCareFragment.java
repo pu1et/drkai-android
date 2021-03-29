@@ -114,7 +114,6 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
     JSONObject jsonObject;
     String diabetes_risk, myocardial_risk, depression_risk, hepatitisA_risk, hepatitisB_risk, hepatitisC_risk, cirrhosis_risk, stroke_risk, gastriculcer_risk, lungcancer_risk, lungdisease_risk;
     ArrayList<Disease> totalDisease;
-    SharedPreferences sp;
     private ActionBar actionBar;
     private TextView textView1;
     SharedPreferences sf;
@@ -163,12 +162,10 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
 
         final View view = inflater.inflate(R.layout.fragment_hltcare, container, false);
 
-
         // Sqlite 기본설정 -> MainFragment에 설정
-        // Sqlite 기본설정 -> MainFragment에 설정
-        sf = this.getActivity().getSharedPreferences("sfFile", MODE_PRIVATE);
-        name = sf.getString("user_name", "0");
-        id = sf.getString("user_id", "0");
+        sf = SqliteFunction.mCtx.getSharedPreferences("sfFile", MODE_PRIVATE);
+        name = sf.getString("user_name", "안지원");
+        id = sf.getString("user_id", "hoho1911");
 
         final TextView textView = (TextView) view.findViewById(R.id.textView);
         textView.setText(name + "님, 오늘의 상태를 기록해보세요");
@@ -221,14 +218,14 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
             }
 
             public void onSwipeRight() {
-                SharedPreferences spn = getActivity().getSharedPreferences("user", MODE_PRIVATE);
-                String id = spn.getString("id", "1");  //id만 원하는 걸로 바꾸기
+                SharedPreferences sf = getActivity().getSharedPreferences("sfFile", MODE_PRIVATE);
+                id = sf.getString("user_id", "hoho1911");  //id만 원하는 걸로 바꾸기
                 showData();
             }
 
             public void onSwipeLeft() {
-                SharedPreferences spn = getActivity().getSharedPreferences("user", MODE_PRIVATE);
-                String id = spn.getString("id", "1");  //id만 원하는 걸로 바꾸기
+                SharedPreferences spn = getActivity().getSharedPreferences("sfFile", MODE_PRIVATE);
+                id = sf.getString("user_id", "hoho1911");  //id만 원하는 걸로 바꾸기
                 showData();
 
             }
