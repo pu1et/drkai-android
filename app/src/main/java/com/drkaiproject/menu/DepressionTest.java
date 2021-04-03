@@ -22,6 +22,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.drkaiproject.Constants;
 import com.drkaiproject.R;
+import com.drkaiproject.sqliteHelper.SqliteFunction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,9 +35,7 @@ public class DepressionTest extends AppCompatActivity {
     Spinner depSpin01, depSpin02, depSpin03, depSpin04, depSpin05, depSpin06, depSpin07, depSpin08, depSpin09, depSpin10,
             depSpin11, depSpin12, depSpin13, depSpin14, depSpin15, depSpin16, depSpin17;
     RadioButton check_A, check_B;
-    JSONObject jsonObject, tmpJson;
-    String id;
-    SharedPreferences sp;
+    JSONObject jsonObject;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +52,8 @@ public class DepressionTest extends AppCompatActivity {
         check_A = findViewById(R.id.check_A);
         check_B = findViewById(R.id.check_B);
 
-        sp = this.getSharedPreferences("sfData", Context.MODE_PRIVATE);
-
         findMethod();
         spinMethod();
-
-        Intent intent = getIntent();
-        String str = intent.getExtras().getString("account");
-        try {
-            jsonObject = new JSONObject(str);
-            sp.edit().putString("id", jsonObject.getString("id"));
-            sp.edit().putString("pw", jsonObject.getString("pw"));
-            sp.edit().putString("name", jsonObject.getString("name"));
-            sp.edit().putString("age", jsonObject.getString("age"));
-
-            sp.edit().commit();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 
     public int calRisk(double prob){
@@ -90,18 +73,18 @@ public class DepressionTest extends AppCompatActivity {
         String url =  Constants.SERVER_URL + "/update_data";
 
         try {
-            tmpJson = new JSONObject();
-            tmpJson.put("id", "1");
-            tmpJson.put("table","disease_all");
-            tmpJson.put("column_arr","depression"); // disease_all의 우울증 컬럼
-            tmpJson.put("value_arr",""+depSum);
+            jsonObject = new JSONObject();
+            jsonObject.put("id", SqliteFunction.id);
+            jsonObject.put("table","disease_all");
+            jsonObject.put("column_arr","depression"); // disease_all의 우울증 컬럼
+            jsonObject.put("value_arr",""+depSum);
         }catch (JSONException e){
             e.printStackTrace();
         }
 
         Log.i("depTest_update",jsonObject.toString());
         final RequestQueue requestQueue = Volley.newRequestQueue(DepressionTest.this);
-        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,tmpJson, new Response.Listener<org.json.JSONObject>() {
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,jsonObject, new Response.Listener<org.json.JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
