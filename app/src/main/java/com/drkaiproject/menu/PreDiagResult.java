@@ -28,6 +28,7 @@ import com.drkaiproject.MainActivity;
 import com.drkaiproject.R;
 import com.drkaiproject.adapter.DiseaseAdapter;
 import com.drkaiproject.model.Disease;
+import com.drkaiproject.sqliteHelper.SqliteFunction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,8 +43,7 @@ public class PreDiagResult extends AppCompatActivity {
     DiseaseAdapter adapter;
     ListView disease_lv;
 
-    private String id, area_num, name;
-    Intent intent;
+    String name;
 
     JSONObject jsonObject;
     String diabetes_risk, myocardial_risk, depression_risk, hepatitisA_risk, hepatitisB_risk, hepatitisC_risk, cirrhosis_risk, stroke_risk, gastriculcer_risk, lungcancer_risk, lungdisease_risk;
@@ -52,18 +52,15 @@ public class PreDiagResult extends AppCompatActivity {
     private ActionBar actionBar;
     private TextView textView1;
     ConstraintLayout go_main;
+    SharedPreferences sf;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_prediagresult);
 
-
-        // Sqlite 기본설정 -> MainFragment에 설정
-        area_num = "1";
-        name = "jiwon";
-        id = "1";
-
+        sf = SqliteFunction.mCtx.getSharedPreferences("sfFile", MODE_PRIVATE);
+        name = sf.getString("user_name","안지원");
         final TextView textView = (TextView) findViewById(R.id.textView);
         textView.setText(name + "님, 오늘의 상태를 기록해보세요");
 
@@ -97,7 +94,7 @@ public class PreDiagResult extends AppCompatActivity {
         go_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(PreDiagResult.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -110,7 +107,7 @@ public class PreDiagResult extends AppCompatActivity {
 
         jsonObject = new JSONObject();
         try {
-            jsonObject.put("id", id);
+            jsonObject.put("id", SqliteFunction.id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
