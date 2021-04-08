@@ -1,6 +1,7 @@
 package com.drkaiproject.menu;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.drkaiproject.Constants;
 import com.drkaiproject.R;
+import com.drkaiproject.sqliteHelper.SqliteFunction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -77,7 +79,6 @@ public class UserInfoChange1 extends AppCompatActivity {
     Button go_main;
 
     JSONObject jsonObject, resObject;
-    String str, id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,13 +93,8 @@ public class UserInfoChange1 extends AppCompatActivity {
         findMethod();
         spinMethod();
 
-        Intent intent = getIntent();
-        str = intent.getExtras().getString("account");
-        try {
-            jsonObject = new JSONObject(str);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+
+        jsonObject = new JSONObject();
 
         go_main.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -169,13 +165,12 @@ public class UserInfoChange1 extends AppCompatActivity {
 
     public void receiveAlldata() {
 
-         String url = Constants.SERVER_URL + "/alldata_s";
+        String url = Constants.SERVER_URL + "/alldata_s";
 
-
+        // 모든 데이터를 받아오는 거라 SharedPreference 사용 불필요
         jsonObject = new JSONObject();
         try {
-            id="1";
-            jsonObject.put("id", id);
+            jsonObject.put("id", SqliteFunction.id);
         } catch (JSONException e) {
             e.printStackTrace();
         }
