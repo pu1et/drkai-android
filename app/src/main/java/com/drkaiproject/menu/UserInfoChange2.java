@@ -32,6 +32,7 @@ import com.drkaiproject.algorithmn.Hepatitis;
 import com.drkaiproject.algorithmn.LungDisease;
 import com.drkaiproject.algorithmn.Myocardial;
 import com.drkaiproject.algorithmn.Stroke;
+import com.drkaiproject.sqliteHelper.SqliteFunction;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -70,22 +71,21 @@ public class UserInfoChange2 extends AppCompatActivity {
     JSONObject jsonObject,diseaseObject;
     Double diabetes_risk, myocardial_risk, hepatitisA_risk, cirrhosis_risk, gastriculcer_risk, lungdisease_risk, stroke_risk;
     String depression_risk;
-    SharedPreferences sp;
+    SharedPreferences sf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_healthservey);
+        setContentView(R.layout.activity_userinfochange2);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
 
-        SharedPreferences sf = getSharedPreferences("sfFile",MODE_PRIVATE);
-        id = sf.getString("user_id",null);
+        sf = getSharedPreferences("sfFile",MODE_PRIVATE);
+        id = sf.getString("user_id","hoho1911");
         Log.v("id",id);
 
         findMethod();
 
-        sp = this.getSharedPreferences("sfData", Context.MODE_PRIVATE);
         Intent intent = getIntent();
         String str = intent.getExtras().getString("account");
         Log.v("fragment change", "userinfochange1 -> userinfochange2, "+str);
@@ -156,6 +156,7 @@ public class UserInfoChange2 extends AppCompatActivity {
 
                     algorythm(); //알고리즘 실행
                     try {
+                        jsonObject.put("id",SqliteFunction.id);
                         jsonObject.put("FPG", FPG);
                         jsonObject.put("TG", TG);
                         jsonObject.put("leukocyte", leukocyte);
@@ -197,8 +198,15 @@ public class UserInfoChange2 extends AppCompatActivity {
 
         String url = Constants.SERVER_URL + "/check_user";
 
+        JSONObject tmpJson = new JSONObject();
+        try {
+            tmpJson.put("id",SqliteFunction.id);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         final RequestQueue requestQueue = Volley.newRequestQueue(UserInfoChange2.this);
-        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,jsonObject, new Response.Listener<org.json.JSONObject>() {
+        final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,tmpJson, new Response.Listener<org.json.JSONObject>() {
 
             @Override
             public void onResponse(JSONObject response) {
@@ -260,7 +268,7 @@ public class UserInfoChange2 extends AppCompatActivity {
 
         diseaseObject = new JSONObject();
         try {
-            diseaseObject.put("id",jsonObject.getString("id"));
+            diseaseObject.put("id", SqliteFunction.id);
             diseaseObject.put("diabetes", Math.round((diabetes_risk*10)/10.0));
             diseaseObject.put("hepatitisA", Math.round((hepatitisA_risk*10)/10.0));
             diseaseObject.put("hepatitisB","None");
