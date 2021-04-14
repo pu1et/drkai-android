@@ -13,6 +13,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.drkaiproject.Constants;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,9 +24,9 @@ public class SqliteFunction {
     public static int gender;
     public static int today;
     public static Context mCtx;
-    public static String url = "http://ec2-54-203-95-119.us-west-2.compute.amazonaws.com:1337" + "/dayHealth_r";
+    public static String url = Constants.SERVER_URL + "/dayHealth_r";
     public static JSONObject jsonObject;
-    public static String id;
+    public static String id = null;
 
     public static synchronized void insertData(int date_id, String date, int water, int sleep, int food, int drinking, int smoking, int exercise) {
 
