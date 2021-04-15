@@ -112,12 +112,14 @@
                                 android:layout_weight="3"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="키를 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:textDirection="rtl"
+                                />
 
                             <TextView
                                 android:layout_width="0dp"
@@ -126,7 +128,7 @@
                                 android:layout_weight="1"
                                 android:text="cm"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -156,12 +158,13 @@
                                 android:layout_weight="3"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="몸무게를 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -170,7 +173,7 @@
                                 android:layout_weight="1"
                                 android:text="kg"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -212,7 +215,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="2"
+                                android:layout_weight="2.5"
                                 android:fontFamily="@font/noto_sans"
                                 android:gravity="center|left"
                                 android:paddingLeft="15dp"
@@ -228,12 +231,13 @@
                                 android:layout_weight="3"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="평균 근로시간을 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="13sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -242,7 +246,7 @@
                                 android:layout_weight="1"
                                 android:text="시간"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -310,7 +314,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="2"
+                                android:layout_weight="2.5"
                                 android:fontFamily="@font/noto_sans"
                                 android:gravity="center|left"
                                 android:paddingLeft="15dp"
@@ -323,24 +327,26 @@
                                 android:id="@+id/txt_HE_sput2"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="2"
+                                android:layout_weight="1.8"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="지속 년수를 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="12sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginBottom="3dp"
-                                android:layout_weight="1"
+                                android:layout_weight="0.7"
                                 android:text="년"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp"
+                                />
                         </LinearLayout>
 
 
@@ -428,7 +434,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
+                                android:layout_weight="1.5"
                                 android:fontFamily="@font/noto_sans"
                                 android:gravity="center|left"
                                 android:paddingLeft="15dp"
@@ -441,15 +447,16 @@
                                 android:id="@+id/txt_BE3_33"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="3"
+                                android:layout_weight="2.5"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="걷기 지속 시간을 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -458,7 +465,7 @@
                                 android:layout_weight="1"
                                 android:text="시간"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -542,12 +549,13 @@
                                 android:layout_weight="2"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="흡연량을 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -556,7 +564,7 @@
                                 android:layout_weight="1"
                                 android:text="개비"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -596,7 +604,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio14"
@@ -607,7 +615,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -639,12 +647,13 @@
                                 android:layout_weight="3"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="음주량을 입력하세요"
                                 android:inputType="number"
                                 android:paddingLeft="5dp"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="14sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="0dp"
@@ -653,7 +662,7 @@
                                 android:layout_weight="1"
                                 android:text="잔"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -693,7 +702,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio65"
@@ -704,7 +713,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                             </RadioGroup>
                         </LinearLayout>
@@ -721,7 +730,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="3"
+                                android:layout_weight="4"
                                 android:fontFamily="@font/noto_sans"
                                 android:gravity="center|left"
                                 android:paddingLeft="10dp"
@@ -734,14 +743,15 @@
                                 android:id="@+id/txt_Total_slp_wk"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="6"
+                                android:layout_weight="5"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="하루 평균 수면시간 입력하세요"
                                 android:inputType="number"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="12sp" />
+                                android:textSize="13sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -750,7 +760,7 @@
                                 android:layout_weight="1"
                                 android:text="시간"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -764,7 +774,7 @@
                             <TextView
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="3"
+                                android:layout_weight="4"
                                 android:fontFamily="@font/noto_sans"
                                 android:gravity="center|left"
                                 android:paddingLeft="10dp"
@@ -777,14 +787,15 @@
                                 android:id="@+id/txt_Total_slp_wd"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="6"
+                                android:layout_weight="5"
                                 android:background="@null"
                                 android:fontFamily="@font/noto_sans"
-                                android:hint="하루 평균 수면시간 입력하세요"
                                 android:inputType="number"
                                 android:textColor="#666"
                                 android:textColorHint="#999"
-                                android:textSize="12sp" />
+                                android:textSize="14sp"
+                                android:paddingRight="5dp"
+                                android:textDirection="rtl"/>
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -793,7 +804,7 @@
                                 android:layout_weight="1"
                                 android:text="시간"
                                 android:textColor="#ff3d71ff"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
                         </LinearLayout>
 
                         <!--진료정보-->
@@ -860,7 +871,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio17"
@@ -871,7 +882,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
 
@@ -943,7 +954,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio20"
@@ -954,7 +965,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1026,7 +1037,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio23"
@@ -1037,7 +1048,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1080,7 +1091,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio63"
@@ -1091,7 +1102,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1134,7 +1145,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio26"
@@ -1145,7 +1156,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1188,7 +1199,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio29"
@@ -1199,7 +1210,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
 
@@ -1243,7 +1254,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio32"
@@ -1254,7 +1265,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                             </RadioGroup>
 
@@ -1298,7 +1309,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio34"
@@ -1309,7 +1320,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1353,7 +1364,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio37"
@@ -1364,7 +1375,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
                         </LinearLayout>
 
@@ -1406,7 +1417,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio40"
@@ -1417,7 +1428,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1461,7 +1472,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio43"
@@ -1472,7 +1483,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
                         </LinearLayout>
 
@@ -1494,7 +1505,7 @@
                                 android:paddingLeft="15dp"
                                 android:text="알레르기\n비염"
                                 android:textColor="#999"
-                                android:textSize="13sp"
+                                android:textSize="14sp"
                                 android:textStyle="bold" />
 
                             <RadioGroup
@@ -1514,7 +1525,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio46"
@@ -1525,7 +1536,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                             </RadioGroup>
 
@@ -1569,7 +1580,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio48"
@@ -1580,7 +1591,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                             </RadioGroup>
 
@@ -1624,7 +1635,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio50"
@@ -1635,7 +1646,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
 
@@ -1679,7 +1690,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio53"
@@ -1690,7 +1701,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
 
                         </LinearLayout>
@@ -1733,7 +1744,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="예"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
 
                                 <RadioButton
                                     android:id="@+id/radio56"
@@ -1744,7 +1755,7 @@
                                     android:fontFamily="@font/noto_sans"
                                     android:text="아니오"
                                     android:textColor="#666"
-                                    android:textSize="13sp" />
+                                    android:textSize="14sp" />
                             </RadioGroup>
                         </LinearLayout>
                     </LinearLayout>
