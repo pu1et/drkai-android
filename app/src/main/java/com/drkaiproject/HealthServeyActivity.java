@@ -187,7 +187,7 @@ public class HealthServeyActivity extends AppCompatActivity {
 
     public void check_user(){
 
-         String url =  Constants.SERVER_URL + "/check_user";
+         String url =  Constants.SERVER_URL + "/user/check-id";
 
         final RequestQueue requestQueue = Volley.newRequestQueue(HealthServeyActivity.this);
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,jsonObject, new Response.Listener<org.json.JSONObject>() {
@@ -217,8 +217,8 @@ public class HealthServeyActivity extends AppCompatActivity {
     public void sendData(int user_exist){
         String url;
 
-        if (user_exist == 0) url = Constants.SERVER_URL + "/join";
-        else url = Constants.SERVER_URL + "/update_data";
+        if (user_exist == 0) url = Constants.SERVER_URL + "/user/join";
+        else url = Constants.SERVER_URL + "/user/data";
 
         Log.i("healthServey_sendData",jsonObject.toString());
         final RequestQueue requestQueue = Volley.newRequestQueue(HealthServeyActivity.this);
@@ -248,7 +248,7 @@ public class HealthServeyActivity extends AppCompatActivity {
 
     public void storeDisease(){
 
-         String url = Constants.SERVER_URL + "/diseaseAll_r";
+         String url = Constants.SERVER_URL + "/user/receive-all-disease";
 
         diseaseObject = new JSONObject();
         try {

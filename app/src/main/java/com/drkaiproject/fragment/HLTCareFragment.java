@@ -276,7 +276,7 @@ public class HLTCareFragment extends Fragment implements View.OnClickListener {
 
     public void receiveDisease() {
 
-        String url = Constants.SERVER_URL + "/diseaseAll_s";
+        String url = Constants.SERVER_URL + "/user/send-all-disease";
 
         jsonObject = new JSONObject();
         try {

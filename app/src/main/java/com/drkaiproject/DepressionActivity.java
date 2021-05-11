@@ -69,10 +69,7 @@ public class DepressionActivity extends AppCompatActivity {
     }
 
     public synchronized  void sendData(){
-        // String url = "https://nodejs105.azurewebsites.net"; // azure
-        // String url = "http://192.168.247.1:1337/join"; // localhost
-         String url = "http://192.168.43.204:1337/join"; // Wifi
-        //String url = "http://aidoctor.cafe24app.com/join";
+         String url = Constants.SERVER_URL + "/user/join";
 
         final RequestQueue requestQueue = Volley.newRequestQueue(DepressionActivity.this);
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, jsonObject, new Response.Listener<org.json.JSONObject>() {
@@ -97,10 +94,7 @@ public class DepressionActivity extends AppCompatActivity {
     }
 
     public synchronized void sendMachine(){
-        // String url = "https://nodejs105.azurewebsites.net";
-         //String url = "http://192.168.247.1:1337/ml_risk"; // localhost
-         String url = "http://192.168.43.204:1337/ml_risk"; // Wifi
-        // String url = "http://aidoctor.cafe24app.com/ml_risk";
+        String url =  Constants.SERVER_URL + "/user/ml-risk";
 
         final RequestQueue requestQueue = Volley.newRequestQueue(DepressionActivity.this);
         final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url,jsonObject, new Response.Listener<org.json.JSONObject>() {

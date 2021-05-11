@@ -145,8 +145,8 @@ public class ChangeHealthServeyActivity extends AppCompatActivity {
     }
 
     public void sendData() {
-        //String url = "https://nodejs105.azurewebsites.net";
-        String url = "http://192.168.247.1:1337/join";
+        String url = Constants.SERVER_URL + "/user/join";
+
         try {
             newObject = new JSONObject();
             SharedPreferences sp = getSharedPreferences("user", MODE_PRIVATE);

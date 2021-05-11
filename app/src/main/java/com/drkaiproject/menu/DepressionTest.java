@@ -70,7 +70,7 @@ public class DepressionTest extends AppCompatActivity {
     }
 
     public synchronized void update_depSum(){
-        String url =  Constants.SERVER_URL + "/update_data";
+        String url =  Constants.SERVER_URL + "/user/data";
 
         try {
             jsonObject = new JSONObject();

@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Log.v("/login send : ",loginObject.toString());
+                Log.v("/user/login send : ",loginObject.toString());
 
                 Thread threadA = new Thread() {
                     public void run() {
@@ -85,7 +85,7 @@ public class LoginActivity extends AppCompatActivity {
 
                         try {
                             Constants.VolleySync threadB1 = new Constants.VolleySync(getApplicationContext());
-                            loginResp = threadB1.execute(Constants.SERVER_URL + "/login", loginObject.toString()).get();
+                            loginResp = threadB1.execute(Constants.SERVER_URL + "/user/login", loginObject.toString()).get();
                         } catch (InterruptedException | ExecutionException e) {
                             e.printStackTrace();
                         }

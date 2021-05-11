@@ -200,9 +200,9 @@ public class MainActivity extends AppCompatActivity {
 
                 try {
                     Constants.VolleySync threadB1 = new Constants.VolleySync(getApplicationContext());
-                    HLTResp = threadB1.execute(Constants.SERVER_URL + "/dayHealth_s", HLTJSONObject.toString()).get();
+                    HLTResp = threadB1.execute(Constants.SERVER_URL + "/user/send-day-health", HLTJSONObject.toString()).get();
                     Constants.VolleySync threadB2 = new Constants.VolleySync(getApplicationContext());
-                    caIdxResp = threadB2.execute(Constants.SERVER_URL + "/get_caIdx", caIdxJSONObject.toString()).get();
+                    caIdxResp = threadB2.execute(Constants.SERVER_URL + "/api/cold", caIdxJSONObject.toString()).get();
                 } catch (InterruptedException | ExecutionException e) {
                     e.printStackTrace();
                 }

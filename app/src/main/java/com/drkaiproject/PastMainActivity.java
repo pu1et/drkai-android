@@ -402,7 +402,7 @@ public class PastMainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(String... urls) {
-            String url_dayhealth = Constants.SERVER_URL + "/dayHealth_s";
+            String url_dayhealth = Constants.SERVER_URL + "/user/send-day-health";
 
             JSONObject jsonObject = new JSONObject();
             try {

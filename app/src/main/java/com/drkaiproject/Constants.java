@@ -58,6 +58,8 @@ public class Constants {
 
 
     public final static String SERVER_URL = "http://ec2-44-235-212-15.us-west-2.compute.amazonaws.com:1337";
+    // Wifi : "http://192.168.43.204:1337";
+    // local : "http://192.168.247.1:1337";
     public final static String Chatbot_svKey = "RlN3QXZuQ1hRTE5PU0pNSndzT3JJUkFKcmpvQ0dCV1k=";
     public final static String Chatbot_URL = "https://6e0e011f4b514540b7793dd5005492bd.apigw.ntruss.com/custom/v1/3611/d1df14c67ffdde8e9444cba9b473cb9959a356162d3212753963acb6513eb132";
 
